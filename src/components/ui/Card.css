@@ -1,0 +1,55 @@
+/* Card Component Styles */
+
+.card {
+  background: white;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.card-clickable {
+  cursor: pointer;
+}
+
+.card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Variants */
+.card-default {
+  border: 1px solid #d7e1ea;
+  box-shadow: 9px 10px 21.9px rgba(185, 204, 225, 0.15);
+}
+
+.card-outlined {
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+}
+
+.card-elevated {
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-flat {
+  border: none;
+  box-shadow: none;
+}
+
+/* Padding */
+.card-padding-small {
+  padding: 15px;
+}
+
+.card-padding-medium {
+  padding: 30px;
+}
+
+.card-padding-large {
+  padding: 40px;
+}
+
+.card-padding-none {
+  padding: 0;
+}
+

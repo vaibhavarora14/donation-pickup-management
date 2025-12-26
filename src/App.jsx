@@ -3,8 +3,11 @@ import DonationForm from "./components/DonationForm";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
 import AdminDashboard from "./pages/AdminDashboard";
+import BookDonationPickup from "./pages/BookDonationPickup";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
+import PaymentOption from "./pages/PaymentOption";
+import PickupModeSelection from "./pages/PickupModeSelection";
 
 function App() {
   return (
@@ -14,6 +17,15 @@ function App() {
           <Routes>
             {/* Landing Page */}
             <Route path="/" element={<LandingPage />} />
+
+            {/* Book Donation Pickup */}
+            <Route path="/book-donation" element={<BookDonationPickup />} />
+
+            {/* Pickup Mode Selection */}
+            <Route path="/pickup-mode" element={<PickupModeSelection />} />
+
+            {/* Payment Option */}
+            <Route path="/payment" element={<PaymentOption />} />
 
             {/* Donation Form */}
             <Route

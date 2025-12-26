@@ -1,0 +1,102 @@
+/* Header Component Styles */
+
+.header {
+  background: white;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-section {
+  flex: 0 0 200px;
+}
+
+.logo-img {
+  height: 77px;
+  width: auto;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.logo-img:hover {
+  opacity: 0.8;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #20212d;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #f17c25;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.happiee-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #20212d;
+}
+
+.heart-icon {
+  width: 36px;
+  height: 36px;
+  background: #351111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.ngo-login-btn {
+  height: 36px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
