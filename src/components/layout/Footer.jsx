@@ -4,7 +4,7 @@ import { FOOTER_LINKS } from "../../constants";
 
 const Footer = () => {
   return (
-    <footer className="bg-main text-white py-16">
+    <footer className="bg-bg-dark text-white py-16">
       <div className="max-w-[1440px] mx-auto px-5">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-15 mb-12">
           <div>

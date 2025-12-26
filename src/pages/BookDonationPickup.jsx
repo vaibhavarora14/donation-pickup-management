@@ -115,9 +115,9 @@ const BookDonationPickup = () => {
       <main className="max-w-[1440px] mx-auto px-5 py-10">
         {/* Location Selector */}
         <div className="flex justify-end mb-6">
-          <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 cursor-pointer hover:border-call-to-action transition-colors">
-            <MapPin size={20} className="text-call-to-action" />
-            <span className="text-sm font-medium text-title">Mohali</span>
+          <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 cursor-pointer hover:border-accent transition-colors">
+            <MapPin size={20} className="text-accent" />
+            <span className="text-sm font-medium text-heading">Mohali</span>
             <ChevronDown size={16} className="text-gray-400" />
           </div>
         </div>
@@ -140,7 +140,7 @@ const BookDonationPickup = () => {
         {/* Category Sections */}
         {loading ? (
           <div className="text-center py-10">
-            <p className="text-paragraph">Loading categories...</p>
+            <p className="text-body">Loading categories...</p>
           </div>
         ) : (
           <div className="space-y-6 mb-10">
@@ -158,7 +158,7 @@ const BookDonationPickup = () => {
                       className="w-12 h-12 object-contain"
                     />
                   )}
-                  <h2 className="text-2xl font-semibold text-title">{category.name}</h2>
+                  <h2 className="text-2xl font-semibold text-heading">{category.name}</h2>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   {category.items.map((item) => {
@@ -169,8 +169,8 @@ const BookDonationPickup = () => {
                         className={cn(
                           "flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all",
                           isSelected
-                            ? "bg-call-to-action text-white border-call-to-action"
-                            : "bg-white text-title border-gray-300 hover:border-call-to-action"
+                            ? "bg-accent text-white border-accent"
+                            : "bg-white text-heading border-gray-300 hover:border-accent"
                         )}
                         onClick={() => toggleItem(item.id)}
                       >

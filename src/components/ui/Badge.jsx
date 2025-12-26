@@ -10,8 +10,8 @@ const Badge = ({
 }) => {
   const variantClasses = {
     default: 'bg-[#3ac58c] text-white',
-    primary: 'bg-call-to-action text-white',
-    secondary: 'bg-main text-white',
+    primary: 'bg-accent text-white',
+    secondary: 'bg-bg-dark text-white',
     success: 'bg-[#30b979] text-white',
     warning: 'bg-[#ffc107] text-black',
     error: 'bg-[#dc3545] text-white',

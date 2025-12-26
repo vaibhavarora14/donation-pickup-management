@@ -166,11 +166,11 @@ const SchedulePickup = () => {
         {/* Note Section */}
         <Card variant="default" padding="medium" className="bg-[#f0ecd6] border border-[#e4e7eb] mb-10 max-w-[1000px] mx-auto">
           <div className="flex gap-4 items-start">
-            <div className="flex-shrink-0 w-[29px] h-[29px] bg-call-to-action rounded-full flex items-center justify-center text-white">
+            <div className="flex-shrink-0 w-[29px] h-[29px] bg-accent rounded-full flex items-center justify-center text-white">
               <AlertCircle size={18} />
             </div>
             <div className="flex-1">
-              <strong className="text-call-to-action text-lg font-semibold mr-1">Note:</strong>
+              <strong className="text-accent text-lg font-semibold mr-1">Note:</strong>
               <p className="text-[#334147] text-sm leading-[18px] tracking-[0.7px] mt-1">
                 We, at Happieesouls, support small grassroots NGOs with your
                 donations. Our third party logistics partners do not carry any
@@ -188,14 +188,14 @@ const SchedulePickup = () => {
             {/* Donor Location */}
             <Card variant="default" padding="medium" className="bg-white rounded-[14px]">
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-sm font-medium text-title m-0">Donor Location:</h3>
+                <h3 className="text-sm font-medium text-heading m-0">Donor Location:</h3>
                 <Button
                   variant="outline"
                   size="small"
                   onClick={() => {
                     console.log("Change location clicked");
                   }}
-                  className="flex items-center gap-1 border border-call-to-action text-call-to-action px-5 py-2 rounded-[5px] text-xs font-medium"
+                  className="flex items-center gap-1 border border-accent text-accent px-5 py-2 rounded-[5px] text-xs font-medium"
                 >
                   <MapPin size={16} />
                   Change location
@@ -364,7 +364,7 @@ const SchedulePickup = () => {
                   variant="outline"
                   size="small"
                   onClick={() => setShowCalendar(!showCalendar)}
-                  className="flex items-center gap-2.5 border border-call-to-action text-call-to-action px-3.5 py-2.5 rounded-[5px] text-xs font-medium"
+                  className="flex items-center gap-2.5 border border-accent text-accent px-3.5 py-2.5 rounded-[5px] text-xs font-medium"
                 >
                   <Calendar size={16} />
                   Calendar
@@ -380,8 +380,8 @@ const SchedulePickup = () => {
                     className={cn(
                       "px-5 py-3 rounded-[20px] text-sm transition-all",
                       selectedDateRange === range
-                        ? "bg-call-to-action text-white border border-call-to-action"
-                        : "border border-[#aaa] bg-white text-[#282828] hover:border-call-to-action"
+                        ? "bg-accent text-white border border-accent"
+                        : "border border-[#aaa] bg-white text-[#282828] hover:border-accent"
                     )}
                     onClick={() => setSelectedDateRange(range)}
                   >
@@ -391,11 +391,11 @@ const SchedulePickup = () => {
               </div>
 
               {showCalendar && (
-                <div className="mt-5 border border-call-to-action rounded-[9px] p-5 bg-white">
+                <div className="mt-5 border border-accent rounded-[9px] p-5 bg-white">
                   <div className="flex justify-between items-center mb-5">
                     <button
                       type="button"
-                      className="bg-none border-none text-call-to-action cursor-pointer p-1.5 flex items-center justify-center hover:opacity-70"
+                      className="bg-none border-none text-accent cursor-pointer p-1.5 flex items-center justify-center hover:opacity-70"
                       onClick={handlePrevMonth}
                     >
                       <ChevronLeft size={16} />
@@ -405,7 +405,7 @@ const SchedulePickup = () => {
                     </h3>
                     <button
                       type="button"
-                      className="bg-none border-none text-call-to-action cursor-pointer p-1.5 flex items-center justify-center hover:opacity-70"
+                      className="bg-none border-none text-accent cursor-pointer p-1.5 flex items-center justify-center hover:opacity-70"
                       onClick={handleNextMonth}
                     >
                       <ChevronRight size={16} />
@@ -430,7 +430,7 @@ const SchedulePickup = () => {
                             "w-[51px] h-[42px] border-none bg-none text-base text-black cursor-pointer rounded transition-all",
                             !date && "cursor-default",
                             date && isSameDay(date, selectedDate) &&
-                              "bg-call-to-action text-white font-medium"
+                              "bg-accent text-white font-medium"
                           )}
                           onClick={() => handleDateClick(date)}
                           disabled={!date}

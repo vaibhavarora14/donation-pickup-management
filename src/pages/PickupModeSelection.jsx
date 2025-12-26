@@ -90,7 +90,7 @@ const PickupModeSelection = () => {
             Please select your mode of pick up
           </h1>
           <div className="flex justify-end">
-            <div className="inline-flex items-center gap-2.5 bg-call-to-action/10 border border-call-to-action/10 rounded-full px-5 py-2 cursor-pointer transition-all hover:bg-call-to-action/15 text-call-to-action">
+            <div className="inline-flex items-center gap-2.5 bg-accent/10 border border-accent/10 rounded-full px-5 py-2 cursor-pointer transition-all hover:bg-accent/15 text-accent">
               <MapPin size={20} />
               <span className="text-base font-medium tracking-[0.8px]">Mohali</span>
               <ChevronDown size={16} />
@@ -100,12 +100,12 @@ const PickupModeSelection = () => {
 
         {/* Note */}
         <div className="bg-[#f0ecd6] opacity-50 rounded-[10px] p-4 md:p-5 flex gap-4 mb-10 items-start">
-          <div className="w-[29px] h-[29px] bg-call-to-action rounded-full flex items-center justify-center text-white flex-shrink-0">
+          <div className="w-[29px] h-[29px] bg-accent rounded-full flex items-center justify-center text-white flex-shrink-0">
             <AlertCircle size={18} />
           </div>
           <div className="flex gap-2 flex-1">
-            <span className="text-call-to-action font-semibold text-base">Note:</span>
-            <span className="text-paragraph text-sm">
+            <span className="text-accent font-semibold text-base">Note:</span>
+            <span className="text-body text-sm">
               We are glad to have benevolent donors like you who are
               willing/pleased to go the extra mile to help the people in need.
               Choose the number of boxes/bags and estimate your pickup *
@@ -123,7 +123,7 @@ const PickupModeSelection = () => {
               className={cn(
                 "text-center cursor-pointer transition-all",
                 selectedMode === mode.id
-                  ? "border-2 border-call-to-action shadow-lg"
+                  ? "border-2 border-accent shadow-lg"
                   : "hover:shadow-md"
               )}
               onClick={() => setSelectedMode(mode.id)}
@@ -131,10 +131,10 @@ const PickupModeSelection = () => {
               {mode.image && (
                 <img src={mode.image} alt={mode.name} className="w-full h-32 object-contain mb-4" />
               )}
-              <div className="text-xl font-semibold text-title mb-2">{mode.name}</div>
-              <div className="text-2xl font-bold text-call-to-action mb-2">{mode.price}</div>
-              <div className="text-sm text-paragraph mb-1">{mode.capacity}</div>
-              <div className="text-sm text-paragraph">{mode.weight}</div>
+              <div className="text-xl font-semibold text-heading mb-2">{mode.name}</div>
+              <div className="text-2xl font-bold text-accent mb-2">{mode.price}</div>
+              <div className="text-sm text-body mb-1">{mode.capacity}</div>
+              <div className="text-sm text-body">{mode.weight}</div>
             </Card>
           ))}
         </div>
@@ -144,7 +144,7 @@ const PickupModeSelection = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* Need Helper Card */}
             <Card variant="default" padding="medium">
-              <h3 className="text-xl font-semibold text-title mb-6">Need Helper ?</h3>
+              <h3 className="text-xl font-semibold text-heading mb-6">Need Helper ?</h3>
               <div className="flex gap-6 mb-6">
                 <Radio
                   name="helper"
@@ -163,7 +163,7 @@ const PickupModeSelection = () => {
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-title mb-2">Which Floor ?</label>
+                <label className="block text-sm font-medium text-heading mb-2">Which Floor ?</label>
                 <Select
                   value={floor}
                   onChange={(e) => setFloor(e.target.value)}
@@ -176,13 +176,13 @@ const PickupModeSelection = () => {
                   ]}
                   fullWidth
                 />
-                <p className="text-xs text-paragraph mt-2">
+                <p className="text-xs text-body mt-2">
                   (Charges apply, if floor more than 1st)
                 </p>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-title mb-2">Lift Available ?</label>
+                <label className="block text-sm font-medium text-heading mb-2">Lift Available ?</label>
                 <div className="flex gap-6">
                   <Radio
                     name="lift"
@@ -204,8 +204,8 @@ const PickupModeSelection = () => {
 
             {/* Terms Card */}
             <Card variant="default" padding="medium">
-              <h3 className="text-xl font-semibold text-title mb-4">Terms and conditions*</h3>
-              <p className="text-sm text-paragraph mb-4 leading-relaxed">
+              <h3 className="text-xl font-semibold text-heading mb-4">Terms and conditions*</h3>
+              <p className="text-sm text-body mb-4 leading-relaxed">
                 <strong>Lorem ipsum dolor sit amet</strong>, consectetur
                 adipiscing elit. Duis lacinia urna sit amet sapien suscipit, in
                 consectetur neque sodales. Phasellus scelerisque finibus tempor.
@@ -224,7 +224,7 @@ const PickupModeSelection = () => {
               <Button
                 variant="ghost"
                 size="small"
-                className="text-call-to-action hover:bg-call-to-action/10"
+                className="text-accent hover:bg-accent/10"
                 onClick={() => setShowMoreTerms(!showMoreTerms)}
               >
                 Show more
@@ -238,21 +238,21 @@ const PickupModeSelection = () => {
 
           {/* Price Detail Card */}
           <Card variant="default" padding="medium" className="lg:sticky lg:top-24 h-fit">
-            <h3 className="text-xl font-semibold text-title mb-6">Price Detail</h3>
+            <h3 className="text-xl font-semibold text-heading mb-6">Price Detail</h3>
             <div className="mb-6">
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Total Price</span>
-                <span className="text-title font-medium">
+                <span className="text-heading font-medium">
                   {pickupModes.find((m) => m.id === selectedMode)?.price || "₹200"}
                 </span>
               </div>
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Helper Charges</span>
-                <span className="text-title font-medium">₹{needHelper === "yes" ? "10.00" : "0.00"}</span>
+                <span className="text-heading font-medium">₹{needHelper === "yes" ? "10.00" : "0.00"}</span>
               </div>
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Total GST</span>
-                <span className="text-title font-medium">
+                <span className="text-heading font-medium">
                   ₹
                   {Math.round(
                     (parseInt(
@@ -268,7 +268,7 @@ const PickupModeSelection = () => {
                 </span>
               </div>
             </div>
-            <div className="flex justify-between py-5 text-base font-semibold text-title border-t-2 border-gray-300 mb-6">
+            <div className="flex justify-between py-5 text-base font-semibold text-heading border-t-2 border-gray-300 mb-6">
               <span>Total Amount</span>
               <span>₹{calculateTotal()}.0</span>
             </div>

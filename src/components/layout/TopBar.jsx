@@ -4,7 +4,7 @@ import { CONTACT_INFO } from '../../constants';
 
 const TopBar = ({ showLogin = true }) => {
   return (
-    <div className="bg-call-to-action h-[37px] flex items-center justify-center text-white text-[13px]">
+    <div className="bg-accent h-[37px] flex items-center justify-center text-white text-[13px]">
       <div className="flex justify-between items-center w-full max-w-[1440px] px-5">
         <div className="flex items-center gap-2">
           <Phone size={16} />

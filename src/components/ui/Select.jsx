@@ -13,8 +13,8 @@ const Select = ({
   ...props
 }) => {
   const selectClasses = cn(
-    'appearance-none bg-white border border-[#d7e1ea] rounded-full px-5 py-3 pr-10 font-sans text-base text-title cursor-pointer transition-all outline-none',
-    'focus:border-call-to-action focus:ring-3 focus:ring-call-to-action/10',
+    'appearance-none bg-white border border-[#d7e1ea] rounded-full px-5 py-3 pr-10 font-sans text-base text-heading cursor-pointer transition-all outline-none',
+    'focus:border-accent focus:ring-3 focus:ring-accent/10',
     disabled && 'bg-gray-100 cursor-not-allowed opacity-60',
     fullWidth && 'w-full',
     className
@@ -44,7 +44,7 @@ const Select = ({
           );
         })}
       </select>
-      <ChevronDown size={16} className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-paragraph opacity-60" />
+      <ChevronDown size={16} className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-body opacity-60" />
     </div>
   );
 };

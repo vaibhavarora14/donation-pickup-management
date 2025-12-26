@@ -15,10 +15,10 @@ const Button = ({
   const baseClasses = 'inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 cursor-pointer disabled:cursor-not-allowed disabled:opacity-60';
   
   const variantClasses = {
-    primary: 'bg-call-to-action text-white hover:bg-primary-hover',
+    primary: 'bg-accent text-white hover:bg-primary-hover',
     secondary: 'bg-secondary text-white hover:bg-secondary-hover',
-    outline: 'border-2 border-call-to-action text-call-to-action bg-transparent hover:bg-call-to-action hover:text-white',
-    dark: 'bg-main text-misc-keyboard hover:opacity-90',
+    outline: 'border-2 border-accent text-accent bg-transparent hover:bg-accent hover:text-white',
+    dark: 'bg-bg-dark text-bg-light hover:opacity-90',
     success: 'bg-green-500 text-white hover:bg-green-600',
   };
 

@@ -20,12 +20,12 @@ const Checkbox = ({
         checked={checked}
         onChange={onChange}
         disabled={disabled}
-        className="w-[18px] h-[18px] cursor-pointer accent-call-to-action m-0 disabled:cursor-not-allowed"
+        className="w-[18px] h-[18px] cursor-pointer accent-accent m-0 disabled:cursor-not-allowed"
         {...props}
       />
       <span className={cn(
-        'text-title transition-colors',
-        checked && 'text-call-to-action font-medium'
+        'text-heading transition-colors',
+        checked && 'text-accent font-medium'
       )}>
         {label}
       </span>

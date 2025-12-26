@@ -34,8 +34,8 @@ const Header = ({ showHappieeBox = true }) => {
               to={link.path + (link.hash || "")}
               className={`text-base font-semibold transition-colors ${
                 isActive(link)
-                  ? "text-call-to-action"
-                  : "text-title hover:text-call-to-action"
+                  ? "text-accent"
+                  : "text-heading hover:text-accent"
               }`}
             >
               {link.label}
@@ -45,13 +45,13 @@ const Header = ({ showHappieeBox = true }) => {
         <div className="flex items-center gap-5">
           {showHappieeBox && (
             <div className="flex items-center gap-2">
-              <span className="text-sm text-title">
+              <span className="text-sm text-heading">
                 Happiee
                 <br />
                 Box
               </span>
               <div className="relative w-[36px] h-[36px]">
-                <div className="absolute inset-0 bg-main rounded-full"></div>
+                <div className="absolute inset-0 bg-bg-dark rounded-full"></div>
                 <Heart
                   size={19}
                   fill="white"
@@ -70,7 +70,7 @@ const Header = ({ showHappieeBox = true }) => {
           <Button
             variant="dark"
             size="small"
-            className="bg-main text-misc-keyboard rounded-[26px] px-5 py-2 text-sm h-9"
+            className="bg-bg-dark text-bg-light rounded-[26px] px-5 py-2 text-sm h-9"
           >
             Ngo Login
           </Button>
