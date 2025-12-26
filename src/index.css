@@ -15,7 +15,7 @@
 body {
   margin: 0;
   font-family: var(--font-family);
-  background: var(--bg-gradient);
+  background: #ffffff;
   min-height: 100vh;
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
