@@ -820,7 +820,21 @@
   gap: 20px;
 }
 
-.form-field {
+/* Custom styles for contact form inputs */
+.contact-input .input-group,
+.contact-textarea .textarea-group {
+  position: relative;
+  background: #fff5f5;
+  border-radius: 50px;
+  padding: 0;
+}
+
+.contact-textarea .textarea-group {
+  border-radius: 35px;
+}
+
+.contact-input .input-wrapper,
+.contact-textarea .textarea-wrapper {
   position: relative;
   background: #fff5f5;
   border-radius: 50px;
@@ -830,14 +844,15 @@
   gap: 15px;
 }
 
-.form-field.textarea {
+.contact-textarea .textarea-wrapper {
   border-radius: 35px;
   min-height: 298px;
   align-items: flex-start;
   padding-top: 30px;
 }
 
-.field-icon {
+.contact-input .input-icon,
+.contact-textarea .textarea-icon {
   width: 70px;
   height: 70px;
   background: white;
@@ -845,28 +860,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
   flex-shrink: 0;
+  position: static;
+  opacity: 1;
+  color: #3c3d47;
 }
 
-.form-field input,
-.form-field textarea {
+.contact-input .input,
+.contact-textarea .textarea {
   flex: 1;
   border: none;
   background: transparent;
   font-size: 16px;
   color: #3c3d47;
   outline: none;
+  padding: 0;
+  border-radius: 0;
 }
 
-.form-field input::placeholder,
-.form-field textarea::placeholder {
+.contact-input .input::placeholder,
+.contact-textarea .textarea::placeholder {
   color: rgba(0,0,0,0.5);
 }
 
-.form-field.textarea textarea {
+.contact-textarea .textarea {
   resize: none;
-  height: 100%;
+  min-height: 238px;
 }
 
 .submit-message-btn {
@@ -960,13 +979,17 @@
   margin: 0 auto;
 }
 
-.newsletter-form input {
+.newsletter-input {
   flex: 1;
+}
+
+.newsletter-input .input {
   border: none;
   padding: 15px 30px;
   font-size: 16px;
   outline: none;
   border-radius: 100px;
+  background: transparent;
 }
 
 .newsletter-btn {
@@ -1057,16 +1080,7 @@
 }
 
 @media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-  }
-
-  .nav-menu {
-    margin: 20px 0;
-    flex-wrap: wrap;
-  }
+  /* Header responsive styles are now in component files */
 
   .hero-title {
     font-size: 36px;

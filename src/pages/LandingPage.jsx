@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { User, Mail, Phone, MessageSquare } from "lucide-react";
 import { TopBar, Header, Footer } from "../components/layout";
-import { Button, Card } from "../components/ui";
+import { Button, Input, Textarea } from "../components/ui";
 import "./LandingPage.css";
 
 const LandingPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+
+  const handleFormChange = (field, value) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+  };
+
+  const handleNewsletterSubmit = (e) => {
+    e.preventDefault();
+    // Handle newsletter submission
+    console.log('Newsletter submitted:', newsletterEmail);
+  };
+
   return (
     <div className="landing-page">
       <TopBar />
@@ -460,24 +485,44 @@ const LandingPage = () => {
         <div className="contact-content">
           <div className="contact-form-wrapper">
             <h2 className="section-title">Be a part of our story</h2>
-            <form className="contact-form">
-              <div className="form-field">
-                <div className="field-icon">👤</div>
-                <input type="text" placeholder="Name" />
-              </div>
-              <div className="form-field">
-                <div className="field-icon">✉️</div>
-                <input type="email" placeholder="Email" />
-              </div>
-              <div className="form-field">
-                <div className="field-icon">📞</div>
-                <input type="tel" placeholder="Contact no." />
-              </div>
-              <div className="form-field textarea">
-                <div className="field-icon">💬</div>
-                <textarea placeholder="Message"></textarea>
-              </div>
-              <Button type="submit" variant="dark" size="medium" className="submit-message-btn">
+            <form className="contact-form" onSubmit={handleFormSubmit}>
+              <Input
+                type="text"
+                placeholder="Name"
+                value={formData.name}
+                onChange={(e) => handleFormChange('name', e.target.value)}
+                icon={<User size={20} />}
+                fullWidth
+                className="contact-input"
+              />
+              <Input
+                type="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={(e) => handleFormChange('email', e.target.value)}
+                icon={<Mail size={20} />}
+                fullWidth
+                className="contact-input"
+              />
+              <Input
+                type="tel"
+                placeholder="Contact no."
+                value={formData.phone}
+                onChange={(e) => handleFormChange('phone', e.target.value)}
+                icon={<Phone size={20} />}
+                fullWidth
+                className="contact-input"
+              />
+              <Textarea
+                placeholder="Message"
+                value={formData.message}
+                onChange={(e) => handleFormChange('message', e.target.value)}
+                icon={<MessageSquare size={20} />}
+                fullWidth
+                rows={5}
+                className="contact-textarea"
+              />
+              <Button type="submit" variant="dark" size="medium" className="submit-message-btn" fullWidth>
                 Send message
               </Button>
             </form>
@@ -503,12 +548,19 @@ const LandingPage = () => {
         <div className="newsletter-content">
           <p className="section-label">Join With Us</p>
           <h2 className="section-title">Let's be a Part of us</h2>
-          <div className="newsletter-form">
-            <input type="email" placeholder="Enter your E-mail id" />
-            <Button variant="primary" size="medium" className="newsletter-btn">
+          <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
+            <Input
+              type="email"
+              placeholder="Enter your E-mail id"
+              value={newsletterEmail}
+              onChange={(e) => setNewsletterEmail(e.target.value)}
+              fullWidth
+              className="newsletter-input"
+            />
+            <Button type="submit" variant="primary" size="medium" className="newsletter-btn">
               Join Now
             </Button>
-          </div>
+          </form>
         </div>
       </section>
 

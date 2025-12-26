@@ -358,84 +358,15 @@
   opacity: 0.6;
 }
 
-/* Footer */
-.footer {
-  background: #351111;
-  color: white;
-  padding: 80px 20px 40px;
-  margin-top: 100px;
-}
-
-.footer-content {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
-  margin-bottom: 40px;
-}
-
-.footer-logo {
-  height: 69px;
-  width: auto;
-}
-
-.footer-title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #f17c25;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 20px;
-  text-align: center;
-  color: rgba(255,255,255,0.5);
-  font-size: 14px;
-  max-width: 1440px;
-  margin: 0 auto;
-}
+/* Footer styles are now in component files */
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Footer responsive styles are now in component files */
 }
 
 @media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;
-    gap: 20px;
-  }
+  /* Header responsive styles are now in component files */
 
   .page-title {
     font-size: 24px;
@@ -465,18 +396,11 @@
     max-width: 300px;
   }
 
-  .footer-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  /* Footer responsive styles are now in component files */
 }
 
 @media (max-width: 480px) {
-  .top-bar-content {
-    flex-direction: column;
-    gap: 8px;
-    padding: 8px 20px;
-  }
+  /* TopBar responsive styles are now in component files */
 
   .top-bar-left {
     flex-wrap: wrap;

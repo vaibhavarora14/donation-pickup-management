@@ -1,0 +1,83 @@
+/* Textarea Component Styles */
+
+.textarea-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.textarea-group-full-width {
+  width: 100%;
+}
+
+.textarea-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #20212d;
+  margin-bottom: 4px;
+}
+
+.textarea-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d7e1ea;
+  border-radius: 15px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #20212d;
+  background: white;
+  transition: all 0.3s ease;
+  outline: none;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.textarea:focus {
+  border-color: #f17c25;
+  box-shadow: 0 0 0 3px rgba(241, 124, 37, 0.1);
+}
+
+.textarea:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.textarea-error {
+  border-color: #dc3545;
+}
+
+.textarea-error:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.textarea-full-width {
+  width: 100%;
+}
+
+.textarea-with-icon {
+  padding-left: 45px;
+}
+
+.textarea-icon {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: #3c3d47;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.textarea-error-message {
+  font-size: 12px;
+  color: #dc3545;
+  margin-top: 4px;
+}
+

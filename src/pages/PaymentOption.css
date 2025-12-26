@@ -7,146 +7,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* Top Bar */
-.top-bar {
-  background: #f17c25;
-  height: 37px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 13px;
-}
-
-.top-bar-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1440px;
-  padding: 0 20px;
-}
-
-.top-bar-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.top-bar-icon {
-  font-size: 16px;
-}
-
-.top-bar-text {
-  display: flex;
-  align-items: center;
-  letter-spacing: -0.26px;
-}
-
-.top-bar-right {
-  display: flex;
-  align-items: center;
-}
-
-.top-bar-login {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
-  padding: 4px 8px;
-}
-
-/* Header */
-.header {
-  background: white;
-  height: 110px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.header-content {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo-section {
-  flex: 0 0 200px;
-}
-
-.logo-img {
-  height: 77px;
-  width: auto;
-  cursor: pointer;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 40px;
-  flex: 1;
-  justify-content: center;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: #20212d;
-  font-size: 16px;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: #f17c25;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.happiee-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: #20212d;
-}
-
-.heart-icon {
-  width: 36px;
-  height: 36px;
-  background: #351111;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 14px;
-}
-
-.badge {
-  width: 14px;
-  height: 14px;
-  background: #3ac58c;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 8px;
-  font-weight: 500;
-}
+/* TopBar, Header, Footer, Badge styles are now in component files */
 
 .ngo-login-btn {
   background: #351111;
@@ -307,63 +168,7 @@
 }
 
 /* Footer */
-.footer {
-  background: #351111;
-  color: white;
-  padding: 80px 20px 40px;
-  margin-top: 100px;
-}
-
-.footer-content {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px;
-  margin-bottom: 40px;
-}
-
-.footer-logo {
-  height: 69px;
-  width: auto;
-}
-
-.footer-title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #f17c25;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 20px;
-  text-align: center;
-  color: rgba(255,255,255,0.5);
-  font-size: 14px;
-  max-width: 1440px;
-  margin: 0 auto;
-}
+/* Footer styles are now in component files */
 
 /* Responsive Design */
 @media (max-width: 1200px) {
@@ -371,21 +176,11 @@
     grid-template-columns: 1fr;
   }
 
-  .footer-content {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  /* Footer responsive styles are now in component files */
 }
 
 @media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .nav-menu {
-    flex-wrap: wrap;
+  /* Header responsive styles are now in component files */
     gap: 20px;
   }
 
@@ -398,8 +193,6 @@
     padding: 30px 20px;
   }
 
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
+  /* Footer responsive styles are now in component files */
 }
 
