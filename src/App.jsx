@@ -8,6 +8,7 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import PaymentOption from "./pages/PaymentOption";
 import PickupModeSelection from "./pages/PickupModeSelection";
+import SchedulePickup from "./pages/SchedulePickup";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
 
             {/* Payment Option */}
             <Route path="/payment" element={<PaymentOption />} />
+
+            {/* Schedule Pickup */}
+            <Route path="/schedule-pickup" element={<SchedulePickup />} />
 
             {/* Donation Form */}
             <Route

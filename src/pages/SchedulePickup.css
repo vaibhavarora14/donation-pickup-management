@@ -1,0 +1,417 @@
+.schedule-pickup-page {
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.schedule-pickup-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.schedule-pickup-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+.schedule-pickup-title::first-letter {
+  text-transform: uppercase;
+}
+
+/* Note Section */
+.note-section {
+  background-color: #f0ecd6;
+  border: 1px solid #e4e7eb;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.note-content {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.note-icon-wrapper {
+  flex-shrink: 0;
+  width: 29px;
+  height: 29px;
+  background-color: #f17c25;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.note-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.note-text {
+  flex: 1;
+}
+
+.note-label {
+  color: #f17c25;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.note-text p {
+  color: #334147;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0;
+  letter-spacing: 0.7px;
+}
+
+/* Main Content Layout */
+.schedule-pickup-content {
+  display: grid;
+  grid-template-columns: 1fr 413px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Donor Details Section */
+.donor-details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Location Card */
+.location-card {
+  background-color: white;
+  border-radius: 14px;
+}
+
+.location-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.location-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #20212d;
+  margin: 0;
+}
+
+.change-location-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #f17c25;
+  color: #f17c25;
+  padding: 8px 21px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  background: transparent;
+}
+
+.location-address {
+  font-size: 12px;
+  color: #535456;
+  line-height: 20px;
+  margin: 0;
+}
+
+/* Donor Form Card */
+.donor-form-card {
+  background-color: white;
+  border-radius: 15px;
+}
+
+.form-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #272727;
+  margin: 0 0 15px 0;
+}
+
+.form-divider {
+  height: 1px;
+  background-color: #e4e7eb;
+  margin: 15px 0 25px;
+}
+
+.donor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Pickup Date Card */
+.pickup-date-card {
+  background-color: white;
+  border-radius: 15px;
+}
+
+.pickup-date-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #f17c25;
+  color: #f17c25;
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  background: transparent;
+}
+
+.date-ranges {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.date-range-btn {
+  padding: 13px 22px;
+  border: 1px solid #aaa;
+  border-radius: 20px;
+  background: white;
+  color: #282828;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.date-range-btn:hover {
+  border-color: #f17c25;
+}
+
+.date-range-btn.selected {
+  background-color: #f17c25;
+  color: white;
+  border-color: #f17c25;
+}
+
+/* Calendar */
+.calendar-container {
+  margin-top: 20px;
+  border: 1px solid #f17c25;
+  border-radius: 9px;
+  padding: 20px;
+  background: white;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-month {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.calendar-nav-btn {
+  background: none;
+  border: none;
+  color: #f17c25;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-nav-btn:hover {
+  opacity: 0.7;
+}
+
+.calendar-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(60, 60, 67, 0.6);
+  font-weight: 400;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day {
+  width: 51px;
+  height: 42px;
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.calendar-day:hover:not(.calendar-day-empty):not(.calendar-day-selected) {
+  background-color: #f5f5f5;
+}
+
+.calendar-day-empty {
+  cursor: default;
+}
+
+.calendar-day-selected {
+  background-color: #f17c25;
+  color: white;
+  font-weight: 500;
+}
+
+/* Donation Items Section */
+.donation-items-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-items-card {
+  background-color: white;
+  border-radius: 15px;
+  position: sticky;
+  top: 100px;
+}
+
+.donation-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.donation-item {
+  font-size: 16px;
+  color: #353945;
+  margin: 0;
+  line-height: 40px;
+}
+
+/* Helper Charges Section */
+.helper-charges-section {
+  margin-bottom: 20px;
+}
+
+.helper-charges-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.helper-charges-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #3c3d47;
+}
+
+.helper-charges-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3c3d47;
+}
+
+.helper-charges-checkbox {
+  margin-top: 10px;
+}
+
+.helper-charges-checkbox .checkbox-label {
+  font-size: 14px;
+  color: #60646b;
+  line-height: 20px;
+}
+
+/* Place Order Button */
+.place-order-btn {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .schedule-pickup-content {
+    grid-template-columns: 1fr;
+  }
+
+  .donation-items-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .schedule-pickup-title {
+    font-size: 24px;
+  }
+
+  .form-row-split {
+    grid-template-columns: 1fr;
+  }
+
+  .date-ranges {
+    grid-template-columns: 1fr;
+  }
+
+  .location-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pickup-date-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
