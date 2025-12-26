@@ -12,7 +12,7 @@ import { TopBar, Header, Footer } from "../components/layout";
 import { Button, Card, Input, Select, Checkbox } from "../components/ui";
 import { supabase } from "../supabaseClient";
 import { ORGANIZATION_ID } from "../config";
-import "./SchedulePickup.css";
+import { cn } from "../utils/cn";
 
 const SchedulePickup = () => {
   const location = useLocation();
@@ -153,23 +153,25 @@ const SchedulePickup = () => {
   };
 
   return (
-    <div className="schedule-pickup-page">
+    <div className="min-h-screen bg-[#f4f4f4]">
       <TopBar />
       <Header />
 
-      <main className="schedule-pickup-main">
+      <main className="max-w-[1440px] mx-auto px-5 py-10 pb-15">
         {/* Page Title */}
-        <h1 className="schedule-pickup-title">Schedule a Pickup</h1>
+        <h1 className="text-3xl md:text-4xl font-semibold text-black text-center mb-8 uppercase tracking-wide">
+          Schedule a Pickup
+        </h1>
 
         {/* Note Section */}
-        <Card variant="default" padding="medium" className="note-section">
-          <div className="note-content">
-            <div className="note-icon-wrapper">
-              <AlertCircle size={24} className="note-icon" />
+        <Card variant="default" padding="medium" className="bg-[#f0ecd6] border border-[#e4e7eb] mb-10 max-w-[1000px] mx-auto">
+          <div className="flex gap-4 items-start">
+            <div className="flex-shrink-0 w-[29px] h-[29px] bg-call-to-action rounded-full flex items-center justify-center text-white">
+              <AlertCircle size={18} />
             </div>
-            <div className="note-text">
-              <strong className="note-label">Note:</strong>
-              <p>
+            <div className="flex-1">
+              <strong className="text-call-to-action text-lg font-semibold mr-1">Note:</strong>
+              <p className="text-[#334147] text-sm leading-[18px] tracking-[0.7px] mt-1">
                 We, at Happieesouls, support small grassroots NGOs with your
                 donations. Our third party logistics partners do not carry any
                 carton boxes. You can pack your donations in any carton boxes or
@@ -180,40 +182,39 @@ const SchedulePickup = () => {
           </div>
         </Card>
 
-        <div className="schedule-pickup-content">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_413px] gap-8 max-w-[1200px] mx-auto">
           {/* Left Column - Donor Details */}
-          <div className="donor-details-section">
+          <div className="flex flex-col gap-5">
             {/* Donor Location */}
-            <Card variant="default" padding="medium" className="location-card">
-              <div className="location-header">
-                <h3 className="location-label">Donor Location:</h3>
+            <Card variant="default" padding="medium" className="bg-white rounded-[14px]">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-sm font-medium text-title m-0">Donor Location:</h3>
                 <Button
                   variant="outline"
                   size="small"
                   onClick={() => {
-                    // Handle location change
                     console.log("Change location clicked");
                   }}
-                  className="change-location-btn"
+                  className="flex items-center gap-1 border border-call-to-action text-call-to-action px-5 py-2 rounded-[5px] text-xs font-medium"
                 >
                   <MapPin size={16} />
                   Change location
                 </Button>
               </div>
-              <p className="location-address">{donorLocation.address}</p>
+              <p className="text-xs text-[#535456] leading-5 m-0">{donorLocation.address}</p>
             </Card>
 
             {/* Donor Details Form */}
-            <Card variant="default" padding="large" className="donor-form-card">
-              <h2 className="form-section-title">Donor Detail</h2>
-              <div className="form-divider"></div>
+            <Card variant="default" padding="large" className="bg-white rounded-[15px]">
+              <h2 className="text-xl font-semibold text-[#272727] mb-4 m-0">Donor Detail</h2>
+              <div className="h-px bg-[#e4e7eb] mb-6"></div>
 
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="donor-form"
+                className="flex flex-col gap-5"
                 id="donor-form"
               >
-                <div className="form-row">
+                <div className="flex gap-4">
                   <Input
                     label="First Name*"
                     type="text"
@@ -229,7 +230,7 @@ const SchedulePickup = () => {
                   />
                 </div>
 
-                <div className="form-row">
+                <div className="flex gap-4">
                   <Input
                     label="Last Name*"
                     type="text"
@@ -241,7 +242,7 @@ const SchedulePickup = () => {
                   />
                 </div>
 
-                <div className="form-row">
+                <div className="flex gap-4">
                   <Input
                     label="Personal Email*"
                     type="email"
@@ -257,7 +258,7 @@ const SchedulePickup = () => {
                   />
                 </div>
 
-                <div className="form-row">
+                <div className="flex gap-4">
                   <Input
                     label="Mobile Number*"
                     type="tel"
@@ -273,7 +274,7 @@ const SchedulePickup = () => {
                   />
                 </div>
 
-                <div className="form-row form-row-split">
+                <div className="grid grid-cols-2 gap-4">
                   <Input
                     label="Flat/House No./Building*"
                     type="text"
@@ -292,7 +293,7 @@ const SchedulePickup = () => {
                   />
                 </div>
 
-                <div className="form-row">
+                <div className="flex gap-4">
                   <Input
                     label="Address"
                     type="text"
@@ -302,7 +303,7 @@ const SchedulePickup = () => {
                   />
                 </div>
 
-                <div className="form-row form-row-split">
+                <div className="grid grid-cols-2 gap-4">
                   <Input
                     label="Pin Code*"
                     type="text"
@@ -327,9 +328,9 @@ const SchedulePickup = () => {
                   />
                 </div>
 
-                <div className="form-row">
-                  <div className="input-group input-group-full-width">
-                    <label className="input-label">
+                <div className="flex gap-4">
+                  <div className="flex flex-col gap-2 w-full">
+                    <label className="text-sm font-medium text-[#545759] mb-1">
                       Select Region, State or Province*
                     </label>
                     <Select
@@ -346,7 +347,7 @@ const SchedulePickup = () => {
                       ]}
                     />
                     {errors.state && (
-                      <span className="input-error-message">
+                      <span className="text-xs text-red-500 mt-1">
                         {errors.state.message}
                       </span>
                     )}
@@ -356,33 +357,32 @@ const SchedulePickup = () => {
             </Card>
 
             {/* Pickup Date Selection */}
-            <Card
-              variant="default"
-              padding="large"
-              className="pickup-date-card"
-            >
-              <div className="pickup-date-header">
-                <h2 className="form-section-title">Choose a pickup date</h2>
+            <Card variant="default" padding="large" className="bg-white rounded-[15px]">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-semibold text-[#272727] m-0">Choose a pickup date</h2>
                 <Button
                   variant="outline"
                   size="small"
                   onClick={() => setShowCalendar(!showCalendar)}
-                  className="calendar-btn"
+                  className="flex items-center gap-2.5 border border-call-to-action text-call-to-action px-3.5 py-2.5 rounded-[5px] text-xs font-medium"
                 >
                   <Calendar size={16} />
                   Calendar
                 </Button>
               </div>
-              <div className="form-divider"></div>
+              <div className="h-px bg-[#e4e7eb] mb-6"></div>
 
-              <div className="date-ranges">
+              <div className="grid grid-cols-2 gap-4 mb-5">
                 {dateRanges.map((range) => (
                   <button
                     key={range}
                     type="button"
-                    className={`date-range-btn ${
-                      selectedDateRange === range ? "selected" : ""
-                    }`}
+                    className={cn(
+                      "px-5 py-3 rounded-[20px] text-sm transition-all",
+                      selectedDateRange === range
+                        ? "bg-call-to-action text-white border border-call-to-action"
+                        : "border border-[#aaa] bg-white text-[#282828] hover:border-call-to-action"
+                    )}
                     onClick={() => setSelectedDateRange(range)}
                   >
                     {range}
@@ -391,48 +391,47 @@ const SchedulePickup = () => {
               </div>
 
               {showCalendar && (
-                <div className="calendar-container">
-                  <div className="calendar-header">
+                <div className="mt-5 border border-call-to-action rounded-[9px] p-5 bg-white">
+                  <div className="flex justify-between items-center mb-5">
                     <button
                       type="button"
-                      className="calendar-nav-btn"
+                      className="bg-none border-none text-call-to-action cursor-pointer p-1.5 flex items-center justify-center hover:opacity-70"
                       onClick={handlePrevMonth}
                     >
                       <ChevronLeft size={16} />
                     </button>
-                    <h3 className="calendar-month">
+                    <h3 className="text-xl font-bold text-black m-0">
                       {formatMonthYear(currentMonth)}
                     </h3>
                     <button
                       type="button"
-                      className="calendar-nav-btn"
+                      className="bg-none border-none text-call-to-action cursor-pointer p-1.5 flex items-center justify-center hover:opacity-70"
                       onClick={handleNextMonth}
                     >
                       <ChevronRight size={16} />
                     </button>
                   </div>
-                  <div className="calendar-grid">
-                    <div className="calendar-weekdays">
+                  <div className="flex flex-col gap-2.5">
+                    <div className="grid grid-cols-7 gap-1.5 mb-2.5">
                       {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(
                         (day) => (
-                          <div key={day} className="calendar-weekday">
+                          <div key={day} className="text-center text-xs text-[rgba(60,60,67,0.6)] font-normal">
                             {day}
                           </div>
                         )
                       )}
                     </div>
-                    <div className="calendar-days">
+                    <div className="grid grid-cols-7 gap-1.5">
                       {getDaysInMonth(currentMonth).map((date, index) => (
                         <button
                           key={index}
                           type="button"
-                          className={`calendar-day ${
-                            !date ? "calendar-day-empty" : ""
-                          } ${
-                            date && isSameDay(date, selectedDate)
-                              ? "calendar-day-selected"
-                              : ""
-                          }`}
+                          className={cn(
+                            "w-[51px] h-[42px] border-none bg-none text-base text-black cursor-pointer rounded transition-all",
+                            !date && "cursor-default",
+                            date && isSameDay(date, selectedDate) &&
+                              "bg-call-to-action text-white font-medium"
+                          )}
                           onClick={() => handleDateClick(date)}
                           disabled={!date}
                         >
@@ -447,54 +446,47 @@ const SchedulePickup = () => {
           </div>
 
           {/* Right Column - Donation Items & Order */}
-          <div className="donation-items-section">
-            <Card
-              variant="default"
-              padding="large"
-              className="donation-items-card"
-            >
-              <h2 className="form-section-title">Donation item</h2>
-              <div className="form-divider"></div>
+          <div className="flex flex-col">
+            <Card variant="default" padding="large" className="bg-white rounded-[15px] lg:sticky lg:top-24 h-fit">
+              <h2 className="text-xl font-semibold text-[#272727] mb-4 m-0">Donation item</h2>
+              <div className="h-px bg-[#e4e7eb] mb-5"></div>
 
-              <div className="donation-items-list">
+              <div className="flex flex-col gap-2.5 mb-5">
                 {selectedItems.length > 0 ? (
                   selectedItems.map((item, index) => (
-                    <p key={index} className="donation-item">
+                    <p key={index} className="text-base text-[#353945] m-0 leading-10">
                       {item}
                     </p>
                   ))
                 ) : (
-                  <p className="donation-item">Gas Stove</p>
-                )}
-                {selectedItems.length === 0 && (
                   <>
-                    <p className="donation-item">Washing Machine</p>
-                    <p className="donation-item">Water Purifier</p>
-                    <p className="donation-item">Table Fan</p>
-                    <p className="donation-item">Almirah</p>
-                    <p className="donation-item">Center Table</p>
-                    <p className="donation-item">Single Or Double Cot</p>
-                    <p className="donation-item">Basketball/Football/ Bat</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Gas Stove</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Washing Machine</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Water Purifier</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Table Fan</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Almirah</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Center Table</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Single Or Double Cot</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">Basketball/Football/ Bat</p>
                   </>
                 )}
               </div>
 
-              <div className="form-divider"></div>
+              <div className="h-px bg-[#e4e7eb] mb-5"></div>
 
-              <div className="helper-charges-section">
-                <div className="helper-charges-header">
-                  <span className="helper-charges-label">Helper Chargers</span>
-                  <span className="helper-charges-price">₹150</span>
+              <div className="mb-5">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-base font-semibold text-[#3c3d47]">Helper Chargers</span>
+                  <span className="text-base font-bold text-[#3c3d47]">₹150</span>
                 </div>
                 <Checkbox
                   checked={helperCharges}
                   onChange={(e) => setHelperCharges(e.target.checked)}
                   label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dolor justo, pretium eu sapien nec, rhoncus luctus orci. Nulla et congue lectus."
-                  className="helper-charges-checkbox"
                 />
               </div>
 
-              <div className="form-divider"></div>
+              <div className="h-px bg-[#e4e7eb] mb-5"></div>
 
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Button
@@ -502,7 +494,6 @@ const SchedulePickup = () => {
                   variant="primary"
                   size="large"
                   fullWidth
-                  className="place-order-btn"
                 >
                   Place Order
                 </Button>

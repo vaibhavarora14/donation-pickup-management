@@ -1,5 +1,5 @@
 import React from 'react';
-import './Radio.css';
+import { cn } from '../../utils/cn';
 
 const Radio = ({
   name,
@@ -12,7 +12,11 @@ const Radio = ({
   ...props
 }) => {
   return (
-    <label className={`radio ${disabled ? 'radio-disabled' : ''} ${className}`}>
+    <label className={cn(
+      'flex items-center gap-2.5 cursor-pointer text-sm font-medium text-gray-700 tracking-[0.7px] select-none',
+      disabled && 'cursor-not-allowed opacity-60',
+      className
+    )}>
       <input
         type="radio"
         name={name}
@@ -20,10 +24,15 @@ const Radio = ({
         checked={checked}
         onChange={onChange}
         disabled={disabled}
-        className="radio-input"
+        className="w-[18px] h-[18px] cursor-pointer accent-call-to-action m-0 disabled:cursor-not-allowed"
         {...props}
       />
-      <span className="radio-label">{label || value}</span>
+      <span className={cn(
+        'transition-colors',
+        checked && 'text-call-to-action font-medium'
+      )}>
+        {label || value}
+      </span>
     </label>
   );
 };

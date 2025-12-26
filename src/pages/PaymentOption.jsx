@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Lock } from "lucide-react";
 import { TopBar, Header, Footer } from "../components/layout";
 import { Button, Card } from "../components/ui";
-import "./PaymentOption.css";
+import { cn } from "../utils/cn";
 
 const PaymentOption = () => {
   const location = useLocation();
@@ -25,53 +25,58 @@ const PaymentOption = () => {
   };
 
   return (
-    <div className="payment-option-page">
+    <div className="w-full min-h-screen bg-[#f4f4f4] font-sans">
       <TopBar />
       <Header />
 
       {/* Main Content */}
-      <main className="main-content">
-        <h1 className="page-title">Select Payment Option</h1>
-        <p className="security-note">
+      <main className="max-w-[1200px] mx-auto px-5 py-15 pb-25 text-center">
+        <h1 className="text-[32px] font-medium text-black mb-5">Select Payment Option</h1>
+        <p className="text-base text-paragraph opacity-70 mb-15">
           All transactions are secure and encrypted
         </p>
 
-        <div className="payment-section">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
           {/* Payment Methods Card */}
-          <Card variant="default" padding="medium" className="payment-methods-card">
-            <h3 className="card-title">Payment Methods</h3>
-            <div className="payment-methods">
+          <Card variant="default" padding="large">
+            <h3 className="text-xl font-semibold text-title mb-8 text-left">Payment Methods</h3>
+            <div className="flex flex-col gap-4">
               {paymentMethods.map((method) => (
                 <div
                   key={method.id}
-                  className={`payment-method ${selectedPayment === method.id ? "selected" : ""}`}
+                  className={cn(
+                    "flex items-center gap-4 p-5 border-2 rounded-[10px] cursor-pointer transition-all text-left",
+                    selectedPayment === method.id
+                      ? "border-call-to-action bg-call-to-action/10"
+                      : "border-gray-300 hover:border-call-to-action hover:bg-call-to-action/5"
+                  )}
                   onClick={() => setSelectedPayment(method.id)}
                 >
-                  <span className="method-icon">{method.icon}</span>
-                  <span className="method-name">{method.name}</span>
+                  <span className="text-2xl">{method.icon}</span>
+                  <span className="text-base font-medium text-title">{method.name}</span>
                 </div>
               ))}
             </div>
           </Card>
 
           {/* Price Detail Card */}
-          <Card variant="default" padding="medium" className="price-detail-card">
-            <h3 className="card-title">Price Detail</h3>
-            <div className="price-breakdown">
-              <div className="price-row">
-                <span>Total Price</span>
-                <span>₹200</span>
+          <Card variant="default" padding="large">
+            <h3 className="text-xl font-semibold text-title mb-8 text-left">Price Detail</h3>
+            <div className="mb-5">
+              <div className="flex justify-between py-5 text-base border-b border-gray-300">
+                <span className="text-black opacity-60">Total Price</span>
+                <span className="text-title font-medium text-right">₹200</span>
               </div>
-              <div className="price-row">
-                <span>Helper Charges</span>
-                <span>₹10.00</span>
+              <div className="flex justify-between py-5 text-base border-b border-gray-300">
+                <span className="text-black opacity-60">Helper Charges</span>
+                <span className="text-title font-medium text-right">₹10.00</span>
               </div>
-              <div className="price-row">
-                <span>Total GST</span>
-                <span>₹5.00</span>
+              <div className="flex justify-between py-5 text-base border-b border-gray-300">
+                <span className="text-black opacity-60">Total GST</span>
+                <span className="text-title font-medium text-right">₹5.00</span>
               </div>
             </div>
-            <div className="price-total">
+            <div className="flex justify-between py-5 text-base font-semibold text-title border-t-2 border-gray-300 mb-8">
               <span>Total Amount</span>
               <span>₹{total}.0</span>
             </div>
@@ -81,7 +86,6 @@ const PaymentOption = () => {
               fullWidth
               onClick={handlePayment}
               disabled={!selectedPayment}
-              className="payment-button"
             >
               Make payment
             </Button>

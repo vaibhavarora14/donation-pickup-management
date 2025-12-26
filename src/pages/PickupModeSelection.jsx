@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { MapPin, ChevronDown, AlertCircle } from "lucide-react";
 import { TopBar, Header, Footer } from "../components/layout";
 import { Button, Select, Card, Radio } from "../components/ui";
-import "./PickupModeSelection.css";
+import { cn } from "../utils/cn";
 
 const PickupModeSelection = () => {
   const navigate = useNavigate();
@@ -78,32 +78,34 @@ const PickupModeSelection = () => {
   };
 
   return (
-    <div className="pickup-mode-page">
+    <div className="w-full min-h-screen bg-[#f4f4f4] font-sans">
       <TopBar />
       <Header />
 
       {/* Main Content */}
-      <main className="main-content">
+      <main className="max-w-[1200px] mx-auto px-5 py-10 pb-25">
         {/* Page Title and Location */}
-        <div className="page-header">
-          <h1 className="page-title">Please select your mode of pick up</h1>
-          <div className="location-selector">
-            <div className="location-badge">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+          <h1 className="text-3xl md:text-4xl font-medium text-black m-0">
+            Please select your mode of pick up
+          </h1>
+          <div className="flex justify-end">
+            <div className="inline-flex items-center gap-2.5 bg-call-to-action/10 border border-call-to-action/10 rounded-full px-5 py-2 cursor-pointer transition-all hover:bg-call-to-action/15 text-call-to-action">
               <MapPin size={20} />
-              <span className="location-text">Mohali</span>
+              <span className="text-base font-medium tracking-[0.8px]">Mohali</span>
               <ChevronDown size={16} />
             </div>
           </div>
         </div>
 
         {/* Note */}
-        <div className="info-note">
-          <div className="note-icon">
+        <div className="bg-[#f0ecd6] opacity-50 rounded-[10px] p-4 md:p-5 flex gap-4 mb-10 items-start">
+          <div className="w-[29px] h-[29px] bg-call-to-action rounded-full flex items-center justify-center text-white flex-shrink-0">
             <AlertCircle size={18} />
           </div>
-          <div className="note-content">
-            <span className="note-label">Note:</span>
-            <span className="note-text">
+          <div className="flex gap-2 flex-1">
+            <span className="text-call-to-action font-semibold text-base">Note:</span>
+            <span className="text-paragraph text-sm">
               We are glad to have benevolent donors like you who are
               willing/pleased to go the extra mile to help the people in need.
               Choose the number of boxes/bags and estimate your pickup *
@@ -112,35 +114,38 @@ const PickupModeSelection = () => {
         </div>
 
         {/* Pickup Mode Cards */}
-        <div className="pickup-modes">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {pickupModes.map((mode) => (
             <Card
               key={mode.id}
               variant={selectedMode === mode.id ? "outlined" : "default"}
               padding="medium"
-              className={`mode-card ${
-                selectedMode === mode.id ? "selected" : ""
-              }`}
+              className={cn(
+                "text-center cursor-pointer transition-all",
+                selectedMode === mode.id
+                  ? "border-2 border-call-to-action shadow-lg"
+                  : "hover:shadow-md"
+              )}
               onClick={() => setSelectedMode(mode.id)}
             >
               {mode.image && (
-                <img src={mode.image} alt={mode.name} className="mode-image" />
+                <img src={mode.image} alt={mode.name} className="w-full h-32 object-contain mb-4" />
               )}
-              <div className="mode-name">{mode.name}</div>
-              <div className="mode-price">{mode.price}</div>
-              <div className="mode-capacity">{mode.capacity}</div>
-              <div className="mode-weight">{mode.weight}</div>
+              <div className="text-xl font-semibold text-title mb-2">{mode.name}</div>
+              <div className="text-2xl font-bold text-call-to-action mb-2">{mode.price}</div>
+              <div className="text-sm text-paragraph mb-1">{mode.capacity}</div>
+              <div className="text-sm text-paragraph">{mode.weight}</div>
             </Card>
           ))}
         </div>
 
         {/* Helper and Terms Section */}
-        <div className="details-section">
-          <div className="details-left">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2 space-y-6">
             {/* Need Helper Card */}
-            <Card variant="default" padding="medium" className="detail-card">
-              <h3 className="detail-card-title">Need Helper ?</h3>
-              <div className="radio-group">
+            <Card variant="default" padding="medium">
+              <h3 className="text-xl font-semibold text-title mb-6">Need Helper ?</h3>
+              <div className="flex gap-6 mb-6">
                 <Radio
                   name="helper"
                   value="yes"
@@ -157,8 +162,8 @@ const PickupModeSelection = () => {
                 />
               </div>
 
-              <div className="floor-selector">
-                <label className="floor-label">Which Floor ?</label>
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-title mb-2">Which Floor ?</label>
                 <Select
                   value={floor}
                   onChange={(e) => setFloor(e.target.value)}
@@ -169,16 +174,16 @@ const PickupModeSelection = () => {
                     { value: "4th", label: "4th" },
                     { value: "5th+", label: "5th+" },
                   ]}
-                  className="floor-select"
+                  fullWidth
                 />
-                <p className="floor-note">
+                <p className="text-xs text-paragraph mt-2">
                   (Charges apply, if floor more than 1st)
                 </p>
               </div>
 
-              <div className="lift-selector">
-                <label className="lift-label">Lift Available ?</label>
-                <div className="radio-group">
+              <div>
+                <label className="block text-sm font-medium text-title mb-2">Lift Available ?</label>
+                <div className="flex gap-6">
                   <Radio
                     name="lift"
                     value="yes"
@@ -198,9 +203,9 @@ const PickupModeSelection = () => {
             </Card>
 
             {/* Terms Card */}
-            <Card variant="default" padding="medium" className="detail-card">
-              <h3 className="detail-card-title">Terms and conditions*</h3>
-              <p className="terms-text">
+            <Card variant="default" padding="medium">
+              <h3 className="text-xl font-semibold text-title mb-4">Terms and conditions*</h3>
+              <p className="text-sm text-paragraph mb-4 leading-relaxed">
                 <strong>Lorem ipsum dolor sit amet</strong>, consectetur
                 adipiscing elit. Duis lacinia urna sit amet sapien suscipit, in
                 consectetur neque sodales. Phasellus scelerisque finibus tempor.
@@ -219,46 +224,40 @@ const PickupModeSelection = () => {
               <Button
                 variant="ghost"
                 size="small"
-                className="show-more-btn"
+                className="text-call-to-action hover:bg-call-to-action/10"
                 onClick={() => setShowMoreTerms(!showMoreTerms)}
               >
                 Show more
                 <ChevronDown
                   size={12}
-                  className={showMoreTerms ? "rotated" : ""}
+                  className={cn("transition-transform", showMoreTerms && "rotate-180")}
                 />
               </Button>
             </Card>
           </div>
 
           {/* Price Detail Card */}
-          <Card
-            variant="default"
-            padding="medium"
-            className="price-detail-card"
-          >
-            <h3 className="price-title">Price Detail</h3>
-            <div className="price-breakdown">
-              <div className="price-row">
-                <span>Total Price</span>
-                <span>
-                  {pickupModes.find((m) => m.id === selectedMode)?.price ||
-                    "₹200"}
+          <Card variant="default" padding="medium" className="lg:sticky lg:top-24 h-fit">
+            <h3 className="text-xl font-semibold text-title mb-6">Price Detail</h3>
+            <div className="mb-6">
+              <div className="flex justify-between py-5 text-base border-b border-gray-300">
+                <span className="text-black opacity-60">Total Price</span>
+                <span className="text-title font-medium">
+                  {pickupModes.find((m) => m.id === selectedMode)?.price || "₹200"}
                 </span>
               </div>
-              <div className="price-row">
-                <span>Helper Charges</span>
-                <span>₹{needHelper === "yes" ? "10.00" : "0.00"}</span>
+              <div className="flex justify-between py-5 text-base border-b border-gray-300">
+                <span className="text-black opacity-60">Helper Charges</span>
+                <span className="text-title font-medium">₹{needHelper === "yes" ? "10.00" : "0.00"}</span>
               </div>
-              <div className="price-row">
-                <span>Total GST</span>
-                <span>
+              <div className="flex justify-between py-5 text-base border-b border-gray-300">
+                <span className="text-black opacity-60">Total GST</span>
+                <span className="text-title font-medium">
                   ₹
                   {Math.round(
                     (parseInt(
                       (
-                        pickupModes.find((m) => m.id === selectedMode)?.price ||
-                        "₹200"
+                        pickupModes.find((m) => m.id === selectedMode)?.price || "₹200"
                       )
                         .replace(/[₹,\s-]/g, "")
                         .split(" ")[0] || "200"
@@ -269,7 +268,7 @@ const PickupModeSelection = () => {
                 </span>
               </div>
             </div>
-            <div className="price-total">
+            <div className="flex justify-between py-5 text-base font-semibold text-title border-t-2 border-gray-300 mb-6">
               <span>Total Amount</span>
               <span>₹{calculateTotal()}.0</span>
             </div>
@@ -278,7 +277,6 @@ const PickupModeSelection = () => {
               size="large"
               fullWidth
               onClick={handlePayment}
-              className="payment-button"
             >
               Make payment
             </Button>

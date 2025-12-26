@@ -1,5 +1,5 @@
 import React from 'react';
-import './Checkbox.css';
+import { cn } from '../../utils/cn';
 
 const Checkbox = ({
   checked,
@@ -10,16 +10,25 @@ const Checkbox = ({
   ...props
 }) => {
   return (
-    <label className={`checkbox ${disabled ? 'checkbox-disabled' : ''} ${className}`}>
+    <label className={cn(
+      'flex items-center gap-2.5 cursor-pointer text-sm select-none',
+      disabled && 'cursor-not-allowed opacity-60',
+      className
+    )}>
       <input
         type="checkbox"
         checked={checked}
         onChange={onChange}
         disabled={disabled}
-        className="checkbox-input"
+        className="w-[18px] h-[18px] cursor-pointer accent-call-to-action m-0 disabled:cursor-not-allowed"
         {...props}
       />
-      <span className="checkbox-label">{label}</span>
+      <span className={cn(
+        'text-title transition-colors',
+        checked && 'text-call-to-action font-medium'
+      )}>
+        {label}
+      </span>
     </label>
   );
 };

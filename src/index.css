@@ -1,7 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f17c25;
+  --color-primary-hover: #e06d1f;
+  --color-secondary: #4ecdc4;
+  --color-secondary-hover: #3db8b0;
+  --color-title: #20212d;
+  --color-paragraph: #3c3d47;
+  --color-call-to-action: #f17c25;
+  --color-main: #351111;
+  --color-misc-keyboard: #ebedf0;
+
+  --font-family-sans: "Inter", sans-serif;
+
+  --radius-default: 16px;
+
+  --spacing-15: 60px;
+}
+
 :root {
-  --primary-color: #ff6b6b;
-  --primary-hover: #ff5252;
+  --primary-color: #f17c25;
+  --primary-hover: #e06d1f;
   --secondary-color: #4ecdc4;
+  --call-to-action: #f17c25;
   --bg-gradient: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
   --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(255, 255, 255, 0.3);
@@ -9,7 +30,7 @@
   --text-muted: #636e72;
   --border-radius: 16px;
   --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  --font-family: 'Inter', sans-serif;
+  --font-family: "Inter", sans-serif;
 }
 
 body {
@@ -25,14 +46,23 @@ body {
   box-sizing: border-box;
 }
 
-input, select, textarea, button {
+input,
+select,
+textarea,
+button {
   font-family: inherit;
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .fade-in {

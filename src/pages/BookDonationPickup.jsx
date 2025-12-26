@@ -5,7 +5,7 @@ import { TopBar, Header, Footer } from "../components/layout";
 import { Button, Select, Card } from "../components/ui";
 import { supabase } from "../supabaseClient";
 import { ORGANIZATION_ID } from "../config";
-import "./BookDonationPickup.css";
+import { cn } from "../utils/cn";
 
 const BookDonationPickup = () => {
   const navigate = useNavigate();
@@ -108,74 +108,79 @@ const BookDonationPickup = () => {
   ];
 
   return (
-    <div className="book-donation-page">
+    <div className="w-full min-h-screen bg-[#f4f4f4] font-sans">
       <TopBar />
       <Header />
 
-      <main className="main-content">
+      <main className="max-w-[1440px] mx-auto px-5 py-10">
         {/* Location Selector */}
-        <div className="location-selector">
-          <div className="location-badge">
-            <MapPin size={20} />
-            <span className="location-text">Mohali</span>
-            <ChevronDown size={16} />
+        <div className="flex justify-end mb-6">
+          <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-gray-200 cursor-pointer hover:border-call-to-action transition-colors">
+            <MapPin size={20} className="text-call-to-action" />
+            <span className="text-sm font-medium text-title">Mohali</span>
+            <ChevronDown size={16} className="text-gray-400" />
           </div>
         </div>
 
         {/* Page Title */}
-        <h1 className="page-title">PICK YOUR DONATION ITEMS</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-black text-center mb-8 uppercase tracking-wide">
+          PICK YOUR DONATION ITEMS
+        </h1>
 
         {/* Category Filter */}
-        <div className="category-filter">
+        <div className="flex justify-center mb-10">
           <Select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
             options={categoryOptions}
             fullWidth={false}
-            className="category-select"
           />
         </div>
 
         {/* Category Sections */}
         {loading ? (
-          <div style={{ textAlign: "center", padding: "40px" }}>
-            <p>Loading categories...</p>
+          <div className="text-center py-10">
+            <p className="text-paragraph">Loading categories...</p>
           </div>
         ) : (
-          <div className="categories-container">
+          <div className="space-y-6 mb-10">
             {filteredCategories.map((category) => (
               <Card
                 key={category.id}
                 variant="default"
                 padding="medium"
-                className="category-section"
               >
-                <div className="category-header">
-                  <img
-                    src={category.icon}
-                    alt={category.name}
-                    className="category-icon-img"
-                  />
-                  <h2 className="category-title">{category.name}</h2>
+                <div className="flex items-center gap-4 mb-6">
+                  {category.icon && (
+                    <img
+                      src={category.icon}
+                      alt={category.name}
+                      className="w-12 h-12 object-contain"
+                    />
+                  )}
+                  <h2 className="text-2xl font-semibold text-title">{category.name}</h2>
                 </div>
-                <div className="category-items-container">
-                  <div className="category-items">
-                    {category.items.map((item) => {
-                      const isSelected = selectedItems.has(item.id);
-                      return (
-                        <button
-                          key={item.id}
-                          className={`item-tag ${isSelected ? "selected" : ""}`}
-                          onClick={() => toggleItem(item.id)}
-                        >
-                          {isSelected && (
-                            <Check size={18} className="check-icon" />
-                          )}
-                          <span>{item.name}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
+                <div className="flex flex-wrap gap-3">
+                  {category.items.map((item) => {
+                    const isSelected = selectedItems.has(item.id);
+                    return (
+                      <button
+                        key={item.id}
+                        className={cn(
+                          "flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all",
+                          isSelected
+                            ? "bg-call-to-action text-white border-call-to-action"
+                            : "bg-white text-title border-gray-300 hover:border-call-to-action"
+                        )}
+                        onClick={() => toggleItem(item.id)}
+                      >
+                        {isSelected && (
+                          <Check size={18} className="text-white" />
+                        )}
+                        <span className="text-sm font-medium">{item.name}</span>
+                      </button>
+                    );
+                  })}
                 </div>
               </Card>
             ))}
@@ -183,14 +188,13 @@ const BookDonationPickup = () => {
         )}
 
         {/* Proceed Button */}
-        <div className="proceed-container">
+        <div className="flex justify-center mb-10">
           <Button
             variant="primary"
             size="large"
             fullWidth={false}
             onClick={handleProceed}
             disabled={selectedItems.size === 0}
-            className="proceed-button"
           >
             Proceed
           </Button>

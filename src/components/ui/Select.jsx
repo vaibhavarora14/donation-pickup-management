@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import './Select.css';
+import { cn } from '../../utils/cn';
 
 const Select = ({
   value,
@@ -12,15 +12,16 @@ const Select = ({
   fullWidth = false,
   ...props
 }) => {
-  const selectClasses = [
-    'select',
-    fullWidth && 'select-full-width',
-    disabled && 'select-disabled',
+  const selectClasses = cn(
+    'appearance-none bg-white border border-[#d7e1ea] rounded-full px-5 py-3 pr-10 font-sans text-base text-title cursor-pointer transition-all outline-none',
+    'focus:border-call-to-action focus:ring-3 focus:ring-call-to-action/10',
+    disabled && 'bg-gray-100 cursor-not-allowed opacity-60',
+    fullWidth && 'w-full',
     className
-  ].filter(Boolean).join(' ');
+  );
 
   return (
-    <div className="select-wrapper">
+    <div className="relative inline-block">
       <select
         className={selectClasses}
         value={value}
@@ -43,7 +44,7 @@ const Select = ({
           );
         })}
       </select>
-      <ChevronDown size={16} className="select-icon" />
+      <ChevronDown size={16} className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-paragraph opacity-60" />
     </div>
   );
 };
