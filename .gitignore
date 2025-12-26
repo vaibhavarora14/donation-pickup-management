@@ -25,3 +25,5 @@ dist-ssr
 
 supabase/.*
 supabase/snippets
+
+.env
