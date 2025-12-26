@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { Lock } from "lucide-react";
+import { TopBar, Header, Footer } from "../components/layout";
+import { Button, Card } from "../components/ui";
 import "./PaymentOption.css";
 
 const PaymentOption = () => {
@@ -24,61 +26,8 @@ const PaymentOption = () => {
 
   return (
     <div className="payment-option-page">
-      {/* Top Bar */}
-      <div className="top-bar">
-        <div className="top-bar-content">
-          <div className="top-bar-left">
-            <span className="top-bar-icon">📞</span>
-            <span className="top-bar-text">+91 96067 49381</span>
-            <span className="top-bar-icon">✉️</span>
-            <span className="top-bar-text">hello@happieesouls.com</span>
-          </div>
-          <div className="top-bar-right">
-            <button className="top-bar-login">Login</button>
-          </div>
-        </div>
-      </div>
-
-      {/* Header */}
-      <header className="header">
-        <div className="header-content">
-          <div className="logo-section">
-            <Link to="/">
-              <img
-                src="https://www.figma.com/api/mcp/asset/ba72bfaf-40be-4f92-84a6-6837ff297755"
-                alt="Logo"
-                className="logo-img"
-              />
-            </Link>
-          </div>
-          <nav className="nav-menu">
-            <Link to="/" className="nav-link active">
-              Home
-            </Link>
-            <Link to="/#how-it-works" className="nav-link">
-              How it works
-            </Link>
-            <Link to="/#blog" className="nav-link">
-              Blog
-            </Link>
-            <Link to="/#contact" className="nav-link">
-              Contact Us
-            </Link>
-          </nav>
-          <div className="header-actions">
-            <div className="happiee-box">
-              <span>
-                Happiee
-                <br />
-                Box
-              </span>
-              <div className="heart-icon">❤️</div>
-              <span className="badge">0</span>
-            </div>
-            <button className="ngo-login-btn">Ngo Login</button>
-          </div>
-        </div>
-      </header>
+      <TopBar />
+      <Header />
 
       {/* Main Content */}
       <main className="main-content">
@@ -89,7 +38,7 @@ const PaymentOption = () => {
 
         <div className="payment-section">
           {/* Payment Methods Card */}
-          <div className="payment-methods-card">
+          <Card variant="default" padding="medium" className="payment-methods-card">
             <h3 className="card-title">Payment Methods</h3>
             <div className="payment-methods">
               {paymentMethods.map((method) => (
@@ -103,10 +52,10 @@ const PaymentOption = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </Card>
 
           {/* Price Detail Card */}
-          <div className="price-detail-card">
+          <Card variant="default" padding="medium" className="price-detail-card">
             <h3 className="card-title">Price Detail</h3>
             <div className="price-breakdown">
               <div className="price-row">
@@ -126,80 +75,21 @@ const PaymentOption = () => {
               <span>Total Amount</span>
               <span>₹{total}.0</span>
             </div>
-            <button
-              className="payment-button"
+            <Button
+              variant="primary"
+              size="large"
+              fullWidth
               onClick={handlePayment}
               disabled={!selectedPayment}
+              className="payment-button"
             >
               Make payment
-            </button>
-          </div>
+            </Button>
+          </Card>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-section">
-            <img
-              src="https://www.figma.com/api/mcp/asset/1f027dd6-cede-4bf2-b419-9f9b127c8a6d"
-              alt="Logo"
-              className="footer-logo"
-            />
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">Usefull Link</h4>
-            <ul className="footer-links">
-              <li>
-                <Link to="/#about">About us</Link>
-              </li>
-              <li>
-                <Link to="/#how-it-works">How can you help?</Link>
-              </li>
-              <li>
-                <Link to="/#contact">Contact us</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">Information for</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#ngos">NGOs</a>
-              </li>
-              <li>
-                <a href="#individuals">Individuals</a>
-              </li>
-              <li>
-                <a href="#corporates">Corporates</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">How to Help</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#donate">Donate</a>
-              </li>
-              <li>
-                <a href="#privacy">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#pricing">Pricing Policy</a>
-              </li>
-              <li>
-                <a href="#terms">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#cancellation">Cancellation & Refund Policy</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>© 2025 happieesouls. All Rights Reseved</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

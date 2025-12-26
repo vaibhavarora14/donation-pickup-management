@@ -177,6 +177,11 @@
   color: white;
 }
 
+.cta-button-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
 .cta-button {
   background: #f17c25;
   color: white;

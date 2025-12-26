@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { MapPin, ChevronDown, AlertCircle, Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { MapPin, ChevronDown, AlertCircle } from "lucide-react";
+import { TopBar, Header, Footer } from "../components/layout";
+import { Button, Select, Card, Radio } from "../components/ui";
 import "./PickupModeSelection.css";
 
 const PickupModeSelection = () => {
@@ -68,61 +70,8 @@ const PickupModeSelection = () => {
 
   return (
     <div className="pickup-mode-page">
-      {/* Top Bar */}
-      <div className="top-bar">
-        <div className="top-bar-content">
-          <div className="top-bar-left">
-            <span className="top-bar-icon">📞</span>
-            <span className="top-bar-text">+91 96067 49381</span>
-            <span className="top-bar-icon">✉️</span>
-            <span className="top-bar-text">hello@happieesouls.com</span>
-          </div>
-          <div className="top-bar-right">
-            <button className="top-bar-login">Login</button>
-          </div>
-        </div>
-      </div>
-
-      {/* Header */}
-      <header className="header">
-        <div className="header-content">
-          <div className="logo-section">
-            <Link to="/">
-              <img
-                src="https://www.figma.com/api/mcp/asset/fa2d6c8f-85b7-4e37-96b6-52220693ebf4"
-                alt="Logo"
-                className="logo-img"
-              />
-            </Link>
-          </div>
-          <nav className="nav-menu">
-            <Link to="/" className="nav-link active">
-              Home
-            </Link>
-            <Link to="/#how-it-works" className="nav-link">
-              How it works
-            </Link>
-            <Link to="/#blog" className="nav-link">
-              Blog
-            </Link>
-            <Link to="/#contact" className="nav-link">
-              Contact Us
-            </Link>
-          </nav>
-          <div className="header-actions">
-            <div className="happiee-box">
-              <span>
-                Happiee
-                <br />
-                Box
-              </span>
-              <div className="heart-icon">❤️</div>
-              <span className="badge">0</span>
-            </div>
-            <button className="ngo-login-btn">Ngo Login</button>
-          </div>
-        </div>
-      </header>
+      <TopBar />
+      <Header />
 
       {/* Main Content */}
       <main className="main-content">
@@ -156,8 +105,10 @@ const PickupModeSelection = () => {
         {/* Pickup Mode Cards */}
         <div className="pickup-modes">
           {pickupModes.map((mode) => (
-            <div
+            <Card
               key={mode.id}
+              variant={selectedMode === mode.id ? "outlined" : "default"}
+              padding="medium"
               className={`mode-card ${selectedMode === mode.id ? "selected" : ""}`}
               onClick={() => setSelectedMode(mode.id)}
             >
@@ -168,7 +119,7 @@ const PickupModeSelection = () => {
               <div className="mode-price">{mode.price}</div>
               <div className="mode-capacity">{mode.capacity}</div>
               <div className="mode-weight">{mode.weight}</div>
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -176,47 +127,39 @@ const PickupModeSelection = () => {
         <div className="details-section">
           <div className="details-left">
             {/* Need Helper Card */}
-            <div className="detail-card">
+            <Card variant="default" padding="medium" className="detail-card">
               <h3 className="detail-card-title">Need Helper ?</h3>
               <div className="radio-group">
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="helper"
-                    value="yes"
-                    checked={needHelper === "yes"}
-                    onChange={(e) => setNeedHelper(e.target.value)}
-                  />
-                  <span>Yes</span>
-                </label>
-                <label className="radio-option">
-                  <input
-                    type="radio"
-                    name="helper"
-                    value="no"
-                    checked={needHelper === "no"}
-                    onChange={(e) => setNeedHelper(e.target.value)}
-                  />
-                  <span>No</span>
-                </label>
+                <Radio
+                  name="helper"
+                  value="yes"
+                  checked={needHelper === "yes"}
+                  onChange={(e) => setNeedHelper(e.target.value)}
+                  label="Yes"
+                />
+                <Radio
+                  name="helper"
+                  value="no"
+                  checked={needHelper === "no"}
+                  onChange={(e) => setNeedHelper(e.target.value)}
+                  label="No"
+                />
               </div>
 
               <div className="floor-selector">
                 <label className="floor-label">Which Floor ?</label>
-                <div className="floor-input-wrapper">
-                  <select
-                    className="floor-select"
-                    value={floor}
-                    onChange={(e) => setFloor(e.target.value)}
-                  >
-                    <option value="1st">1st</option>
-                    <option value="2nd">2nd</option>
-                    <option value="3rd">3rd</option>
-                    <option value="4th">4th</option>
-                    <option value="5th+">5th+</option>
-                  </select>
-                  <ChevronDown size={16} className="floor-dropdown-icon" />
-                </div>
+                <Select
+                  value={floor}
+                  onChange={(e) => setFloor(e.target.value)}
+                  options={[
+                    { value: "1st", label: "1st" },
+                    { value: "2nd", label: "2nd" },
+                    { value: "3rd", label: "3rd" },
+                    { value: "4th", label: "4th" },
+                    { value: "5th+", label: "5th+" },
+                  ]}
+                  className="floor-select"
+                />
                 <p className="floor-note">
                   (Charges apply, if floor more than 1st)
                 </p>
@@ -225,32 +168,26 @@ const PickupModeSelection = () => {
               <div className="lift-selector">
                 <label className="lift-label">Lift Available ?</label>
                 <div className="radio-group">
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="lift"
-                      value="yes"
-                      checked={liftAvailable === "yes"}
-                      onChange={(e) => setLiftAvailable(e.target.value)}
-                    />
-                    <span>Yes</span>
-                  </label>
-                  <label className="radio-option">
-                    <input
-                      type="radio"
-                      name="lift"
-                      value="no"
-                      checked={liftAvailable === "no"}
-                      onChange={(e) => setLiftAvailable(e.target.value)}
-                    />
-                    <span>No</span>
-                  </label>
+                  <Radio
+                    name="lift"
+                    value="yes"
+                    checked={liftAvailable === "yes"}
+                    onChange={(e) => setLiftAvailable(e.target.value)}
+                    label="Yes"
+                  />
+                  <Radio
+                    name="lift"
+                    value="no"
+                    checked={liftAvailable === "no"}
+                    onChange={(e) => setLiftAvailable(e.target.value)}
+                    label="No"
+                  />
                 </div>
               </div>
-            </div>
+            </Card>
 
             {/* Terms Card */}
-            <div className="detail-card">
+            <Card variant="default" padding="medium" className="detail-card">
               <h3 className="detail-card-title">Terms and conditions*</h3>
               <p className="terms-text">
                 <strong>Lorem ipsum dolor sit amet</strong>, consectetur
@@ -268,7 +205,9 @@ const PickupModeSelection = () => {
                   </>
                 )}
               </p>
-              <button
+              <Button
+                variant="ghost"
+                size="small"
                 className="show-more-btn"
                 onClick={() => setShowMoreTerms(!showMoreTerms)}
               >
@@ -277,12 +216,12 @@ const PickupModeSelection = () => {
                   size={12}
                   className={showMoreTerms ? "rotated" : ""}
                 />
-              </button>
-            </div>
+              </Button>
+            </Card>
           </div>
 
           {/* Price Detail Card */}
-          <div className="price-detail-card">
+          <Card variant="default" padding="medium" className="price-detail-card">
             <h3 className="price-title">Price Detail</h3>
             <div className="price-breakdown">
               <div className="price-row">
@@ -316,76 +255,20 @@ const PickupModeSelection = () => {
               <span>Total Amount</span>
               <span>₹{calculateTotal()}.0</span>
             </div>
-            <button className="payment-button" onClick={handlePayment}>
+            <Button
+              variant="primary"
+              size="large"
+              fullWidth
+              onClick={handlePayment}
+              className="payment-button"
+            >
               Make payment
-            </button>
-          </div>
+            </Button>
+          </Card>
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-section">
-            <img
-              src="https://www.figma.com/api/mcp/asset/21301931-e131-4189-8008-2ee6bb05015c"
-              alt="Logo"
-              className="footer-logo"
-            />
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">Usefull Link</h4>
-            <ul className="footer-links">
-              <li>
-                <Link to="/#about">About us</Link>
-              </li>
-              <li>
-                <Link to="/#how-it-works">How can you help?</Link>
-              </li>
-              <li>
-                <Link to="/#contact">Contact us</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">Information for</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#ngos">NGOs</a>
-              </li>
-              <li>
-                <a href="#individuals">Individuals</a>
-              </li>
-              <li>
-                <a href="#corporates">Corporates</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">How to Help</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#donate">Donate</a>
-              </li>
-              <li>
-                <a href="#privacy">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#pricing">Pricing Policy</a>
-              </li>
-              <li>
-                <a href="#terms">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#cancellation">Cancellation & Refund Policy</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>© 2025 happieesouls. All Rights Reseved</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

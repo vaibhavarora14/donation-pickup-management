@@ -1,65 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { TopBar, Header, Footer } from "../components/layout";
+import { Button, Card } from "../components/ui";
 import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      {/* Top Bar */}
-      <div className="top-bar">
-        <div className="top-bar-content">
-          <span className="top-bar-text">+91 96067 49381</span>
-          <span className="top-bar-text">hello@happieesouls.com</span>
-        </div>
-      </div>
-
-      {/* Header/Navigation */}
-      <header className="header">
-        <div className="header-content">
-          <div className="logo-section">
-            <img
-              src="https://www.figma.com/api/mcp/asset/82592298-ff5b-4bb1-9a9f-b43231dadfa9"
-              alt="Logo"
-              className="logo-img"
-            />
-          </div>
-          <nav className="nav-menu">
-            <a href="#home" className="nav-link active">
-              Home
-            </a>
-            <a href="#how-it-works" className="nav-link">
-              How it works
-            </a>
-            <a href="#blog" className="nav-link">
-              Blog
-            </a>
-            <a href="#contact" className="nav-link">
-              Contact Us
-            </a>
-          </nav>
-          <div className="header-actions">
-            <div className="happiee-box">
-              <span>
-                Happiee
-                <br />
-                Box
-              </span>
-              <div className="heart-icon">❤️</div>
-              <span className="badge">0</span>
-            </div>
-            <button className="ngo-login-btn">Ngo Login</button>
-            <button className="login-btn">Login</button>
-          </div>
-        </div>
-      </header>
+      <TopBar />
+      <Header />
 
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <h1 className="hero-title">Fulfilled Souls. Happiness Delivered.</h1>
-          <Link to="/book-donation" className="cta-button">
-            Book Donation pick-up
+          <Link to="/book-donation" className="cta-button-link">
+            <Button variant="primary" size="large" className="cta-button">
+              Book Donation pick-up
+            </Button>
           </Link>
         </div>
       </section>
@@ -402,12 +361,12 @@ const LandingPage = () => {
             </div>
           </div>
           <div className="testimonial-nav">
-            <button className="nav-arrow">←</button>
+            <Button variant="ghost" size="small" className="nav-arrow">←</Button>
             <div className="nav-dots">
               <span className="dot active"></span>
               <span className="dot"></span>
             </div>
-            <button className="nav-arrow">→</button>
+            <Button variant="ghost" size="small" className="nav-arrow">→</Button>
           </div>
         </div>
       </section>
@@ -438,7 +397,9 @@ const LandingPage = () => {
                 <span className="blog-tag">Lifestyle</span>
                 <span className="blog-tag">SustainableLifestyle</span>
               </div>
-              <button className="blog-read-more">Read more</button>
+              <Button variant="primary" size="small" className="blog-read-more">
+                Read more
+              </Button>
             </div>
           </div>
           <div className="blog-card">
@@ -461,7 +422,9 @@ const LandingPage = () => {
                 <span className="blog-tag">Lifestyle</span>
                 <span className="blog-tag">SustainableLifestyle</span>
               </div>
-              <button className="blog-read-more secondary">Read more</button>
+              <Button variant="secondary" size="small" className="blog-read-more">
+                Read more
+              </Button>
             </div>
           </div>
           <div className="blog-card">
@@ -484,7 +447,9 @@ const LandingPage = () => {
                 <span className="blog-tag">Lifestyle</span>
                 <span className="blog-tag">SustainableLifestyle</span>
               </div>
-              <button className="blog-read-more secondary">Read more</button>
+              <Button variant="secondary" size="small" className="blog-read-more">
+                Read more
+              </Button>
             </div>
           </div>
         </div>
@@ -512,9 +477,9 @@ const LandingPage = () => {
                 <div className="field-icon">💬</div>
                 <textarea placeholder="Message"></textarea>
               </div>
-              <button type="submit" className="submit-message-btn">
+              <Button type="submit" variant="dark" size="medium" className="submit-message-btn">
                 Send message
-              </button>
+              </Button>
             </form>
           </div>
           <div className="contact-image">
@@ -540,71 +505,14 @@ const LandingPage = () => {
           <h2 className="section-title">Let's be a Part of us</h2>
           <div className="newsletter-form">
             <input type="email" placeholder="Enter your E-mail id" />
-            <button className="newsletter-btn">Join Now</button>
+            <Button variant="primary" size="medium" className="newsletter-btn">
+              Join Now
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-section">
-            <img
-              src="https://www.figma.com/api/mcp/asset/d26408c8-92f2-412c-bf07-6ffd907e45ff"
-              alt="Logo"
-              className="footer-logo"
-            />
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">Usefull Link</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#home">About us</a>
-              </li>
-              <li>
-                <a href="#how-it-works">How can you help?</a>
-              </li>
-              <li>
-                <a href="#contact">Contact us</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">Information for</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#ngos">NGOs</a>
-              </li>
-              <li>
-                <a href="#individuals">Individuals</a>
-              </li>
-              <li>
-                <a href="#corporates">Corporates</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4 className="footer-title">How to Help</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#donate">Donate</a>
-              </li>
-              <li>
-                <a href="#privacy">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#pricing">Pricing Policy</a>
-              </li>
-              <li>
-                <a href="#terms">Terms of Service</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>© 2025 happieesouls. All Rights Reseved</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
