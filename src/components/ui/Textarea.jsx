@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './Textarea.css';
 
-const Textarea = ({
+const Textarea = forwardRef(({
   placeholder,
   value,
   onChange,
@@ -13,7 +13,7 @@ const Textarea = ({
   icon,
   rows = 4,
   ...props
-}) => {
+}, ref) => {
   const textareaClasses = [
     'textarea',
     error && 'textarea-error',
@@ -29,6 +29,7 @@ const Textarea = ({
       <div className="textarea-wrapper">
         {icon && <span className="textarea-icon">{icon}</span>}
         <textarea
+          ref={ref}
           className={textareaClasses}
           placeholder={placeholder}
           value={value}
@@ -41,7 +42,9 @@ const Textarea = ({
       {error && <span className="textarea-error-message">{error}</span>}
     </div>
   );
-};
+});
+
+Textarea.displayName = 'Textarea';
 
 export default Textarea;
 

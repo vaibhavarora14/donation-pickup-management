@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './Input.css';
 
-const Input = ({
+const Input = forwardRef(({
   type = 'text',
   placeholder,
   value,
@@ -13,7 +13,7 @@ const Input = ({
   className = '',
   icon,
   ...props
-}) => {
+}, ref) => {
   const inputClasses = [
     'input',
     error && 'input-error',
@@ -29,6 +29,7 @@ const Input = ({
       <div className="input-wrapper">
         {icon && <span className="input-icon">{icon}</span>}
         <input
+          ref={ref}
           type={type}
           className={inputClasses}
           placeholder={placeholder}
@@ -41,7 +42,9 @@ const Input = ({
       {error && <span className="input-error-message">{error}</span>}
     </div>
   );
-};
+});
+
+Input.displayName = 'Input';
 
 export default Input;
 

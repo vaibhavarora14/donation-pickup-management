@@ -1,33 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { User, Mail, Phone, MessageSquare } from "lucide-react";
 import { TopBar, Header, Footer } from "../components/layout";
 import { Button, Input, Textarea } from "../components/ui";
 import "./LandingPage.css";
 
 const LandingPage = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  const [newsletterEmail, setNewsletterEmail] = useState('');
+  // Contact Form
+  const {
+    register: registerContact,
+    handleSubmit: handleContactSubmit,
+    formState: { errors: contactErrors },
+    reset: resetContact
+  } = useForm();
 
-  const handleFormChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+  const onContactSubmit = (data) => {
+    console.log('Contact form submitted:', data);
+    // Handle form submission (API call, etc.)
+    // Reset form after successful submission
+    resetContact();
+    alert('Thank you for your message! We will get back to you soon.');
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-  };
+  // Newsletter Form
+  const {
+    register: registerNewsletter,
+    handleSubmit: handleNewsletterSubmit,
+    formState: { errors: newsletterErrors },
+    reset: resetNewsletter
+  } = useForm();
 
-  const handleNewsletterSubmit = (e) => {
-    e.preventDefault();
-    // Handle newsletter submission
-    console.log('Newsletter submitted:', newsletterEmail);
+  const onNewsletterSubmit = (data) => {
+    console.log('Newsletter form submitted:', data);
+    // Handle newsletter subscription
+    resetNewsletter();
+    alert('Thank you for subscribing to our newsletter!');
   };
 
   return (
@@ -485,42 +493,74 @@ const LandingPage = () => {
         <div className="contact-content">
           <div className="contact-form-wrapper">
             <h2 className="section-title">Be a part of our story</h2>
-            <form className="contact-form" onSubmit={handleFormSubmit}>
+            <form className="contact-form" onSubmit={handleContactSubmit(onContactSubmit)}>
               <Input
                 type="text"
                 placeholder="Name"
-                value={formData.name}
-                onChange={(e) => handleFormChange('name', e.target.value)}
                 icon={<User size={20} />}
                 fullWidth
                 className="contact-input"
+                {...registerContact('name', {
+                  required: 'Name is required',
+                  minLength: {
+                    value: 2,
+                    message: 'Name must be at least 2 characters'
+                  },
+                  pattern: {
+                    value: /^[A-Za-z\s]+$/,
+                    message: 'Name can only contain letters and spaces'
+                  }
+                })}
+                error={contactErrors.name?.message}
               />
               <Input
                 type="email"
                 placeholder="Email"
-                value={formData.email}
-                onChange={(e) => handleFormChange('email', e.target.value)}
                 icon={<Mail size={20} />}
                 fullWidth
                 className="contact-input"
+                {...registerContact('email', {
+                  required: 'Email is required',
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'Invalid email address'
+                  }
+                })}
+                error={contactErrors.email?.message}
               />
               <Input
                 type="tel"
                 placeholder="Contact no."
-                value={formData.phone}
-                onChange={(e) => handleFormChange('phone', e.target.value)}
                 icon={<Phone size={20} />}
                 fullWidth
                 className="contact-input"
+                {...registerContact('phone', {
+                  required: 'Phone number is required',
+                  pattern: {
+                    value: /^[0-9]{10}$/,
+                    message: 'Phone number must be 10 digits'
+                  }
+                })}
+                error={contactErrors.phone?.message}
               />
               <Textarea
                 placeholder="Message"
-                value={formData.message}
-                onChange={(e) => handleFormChange('message', e.target.value)}
                 icon={<MessageSquare size={20} />}
                 fullWidth
                 rows={5}
                 className="contact-textarea"
+                {...registerContact('message', {
+                  required: 'Message is required',
+                  minLength: {
+                    value: 10,
+                    message: 'Message must be at least 10 characters'
+                  },
+                  maxLength: {
+                    value: 500,
+                    message: 'Message cannot exceed 500 characters'
+                  }
+                })}
+                error={contactErrors.message?.message}
               />
               <Button type="submit" variant="dark" size="medium" className="submit-message-btn" fullWidth>
                 Send message
@@ -548,14 +588,20 @@ const LandingPage = () => {
         <div className="newsletter-content">
           <p className="section-label">Join With Us</p>
           <h2 className="section-title">Let's be a Part of us</h2>
-          <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
+          <form className="newsletter-form" onSubmit={handleNewsletterSubmit(onNewsletterSubmit)}>
             <Input
               type="email"
               placeholder="Enter your E-mail id"
-              value={newsletterEmail}
-              onChange={(e) => setNewsletterEmail(e.target.value)}
               fullWidth
               className="newsletter-input"
+              {...registerNewsletter('email', {
+                required: 'Email is required',
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'Invalid email address'
+                }
+              })}
+              error={newsletterErrors.email?.message}
             />
             <Button type="submit" variant="primary" size="medium" className="newsletter-btn">
               Join Now

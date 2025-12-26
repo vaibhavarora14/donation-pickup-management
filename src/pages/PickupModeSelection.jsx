@@ -20,7 +20,8 @@ const PickupModeSelection = () => {
       price: "₹200",
       capacity: "1 Bag Upto 10 kgs",
       weight: "Upto 10 kgs",
-      image: "https://www.figma.com/api/mcp/asset/7deb1127-bbda-4e28-b56f-52a84f33677c",
+      image:
+        "https://www.figma.com/api/mcp/asset/7deb1127-bbda-4e28-b56f-52a84f33677c",
     },
     {
       id: "3-wheeler",
@@ -28,7 +29,8 @@ const PickupModeSelection = () => {
       price: "₹500",
       capacity: "2-5 Bags/Cartons",
       weight: "upto 500 Kgs",
-      image: "https://www.figma.com/api/mcp/asset/22099832-adc1-461c-9bad-9194c7c77daa",
+      image:
+        "https://www.figma.com/api/mcp/asset/22099832-adc1-461c-9bad-9194c7c77daa",
     },
     {
       id: "4-wheeler",
@@ -36,7 +38,8 @@ const PickupModeSelection = () => {
       price: "₹800",
       capacity: "5-10 Bags/Carton",
       weight: "upto 2000 Kgs",
-      image: "https://www.figma.com/api/mcp/asset/aea107b6-25f3-4709-87b6-709c1a7710f8",
+      image:
+        "https://www.figma.com/api/mcp/asset/aea107b6-25f3-4709-87b6-709c1a7710f8",
     },
     {
       id: "bulk",
@@ -49,8 +52,10 @@ const PickupModeSelection = () => {
   ];
 
   const calculateTotal = () => {
-    const basePrice = pickupModes.find((m) => m.id === selectedMode)?.price || "₹200";
-    const priceValue = parseInt(basePrice.replace(/[₹,\s-]/g, "").split(" ")[0]) || 200;
+    const basePrice =
+      pickupModes.find((m) => m.id === selectedMode)?.price || "₹200";
+    const priceValue =
+      parseInt(basePrice.replace(/[₹,\s-]/g, "").split(" ")[0]) || 200;
     const helperCharges = needHelper === "yes" ? 10 : 0;
     const gst = Math.round((priceValue + helperCharges) * 0.025); // 2.5% GST
     return priceValue + helperCharges + gst;
@@ -109,7 +114,9 @@ const PickupModeSelection = () => {
               key={mode.id}
               variant={selectedMode === mode.id ? "outlined" : "default"}
               padding="medium"
-              className={`mode-card ${selectedMode === mode.id ? "selected" : ""}`}
+              className={`mode-card ${
+                selectedMode === mode.id ? "selected" : ""
+              }`}
               onClick={() => setSelectedMode(mode.id)}
             >
               {mode.image && (
@@ -221,13 +228,18 @@ const PickupModeSelection = () => {
           </div>
 
           {/* Price Detail Card */}
-          <Card variant="default" padding="medium" className="price-detail-card">
+          <Card
+            variant="default"
+            padding="medium"
+            className="price-detail-card"
+          >
             <h3 className="price-title">Price Detail</h3>
             <div className="price-breakdown">
               <div className="price-row">
                 <span>Total Price</span>
                 <span>
-                  {pickupModes.find((m) => m.id === selectedMode)?.price || "₹200"}
+                  {pickupModes.find((m) => m.id === selectedMode)?.price ||
+                    "₹200"}
                 </span>
               </div>
               <div className="price-row">
@@ -240,10 +252,12 @@ const PickupModeSelection = () => {
                   ₹
                   {Math.round(
                     (parseInt(
-                      (pickupModes.find((m) => m.id === selectedMode)?.price || "₹200").replace(
-                        /[₹,\s-]/g,
-                        ""
-                      ).split(" ")[0] || "200"
+                      (
+                        pickupModes.find((m) => m.id === selectedMode)?.price ||
+                        "₹200"
+                      )
+                        .replace(/[₹,\s-]/g, "")
+                        .split(" ")[0] || "200"
                     ) +
                       (needHelper === "yes" ? 10 : 0)) *
                       0.025
@@ -274,4 +288,3 @@ const PickupModeSelection = () => {
 };
 
 export default PickupModeSelection;
-
