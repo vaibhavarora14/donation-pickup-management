@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { MapPin, ChevronDown, AlertCircle } from "lucide-react";
 import { TopBar, Header, Footer } from "../components/layout";
 import { Button, Select, Card, Radio } from "../components/ui";
@@ -61,9 +61,13 @@ const PickupModeSelection = () => {
     return priceValue + helperCharges + gst;
   };
 
+  const location = useLocation();
+  const { selectedItems = [] } = location.state || {};
+
   const handlePayment = () => {
     navigate("/payment", {
       state: {
+        selectedItems,
         selectedMode,
         needHelper,
         liftAvailable,
