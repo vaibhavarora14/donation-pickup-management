@@ -4,7 +4,7 @@ import { Button } from "../ui";
 const TestimonialsSection = () => {
   return (
     <section className="py-10 sm:py-12 md:py-15 px-4 sm:px-5 bg-gray-50">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <p className="text-xs sm:text-sm font-semibold text-accent text-center mb-2 uppercase tracking-wide">
           Testimonials
         </p>
@@ -17,11 +17,10 @@ const TestimonialsSection = () => {
           <p className="text-sm sm:text-base text-body leading-relaxed mb-6 sm:mb-8">
             Happiee Souls is a miracle that I was searching for.
             <br />
-            <br />
-            I am a book lover who is quite possessive about my books. There is
-            hardly a book I've thrown away and this whole bundle has moved homes
-            along with us. My mum's house and mine had a cupboard full of books
-            and clothes that were waiting to be
+            <br />I am a book lover who is quite possessive about my books.
+            There is hardly a book I've thrown away and this whole bundle has
+            moved homes along with us. My mum's house and mine had a cupboard
+            full of books and clothes that were waiting to be
           </p>
           <div className="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
             <img
@@ -36,14 +35,22 @@ const TestimonialsSection = () => {
             </div>
           </div>
           <div className="flex items-center justify-center gap-3 sm:gap-4">
-            <Button variant="ghost" size="small" className="text-xl sm:text-2xl">
+            <Button
+              variant="ghost"
+              size="small"
+              className="text-xl sm:text-2xl"
+            >
               ←
             </Button>
             <div className="flex gap-2">
               <span className="w-2 h-2 rounded-full bg-accent"></span>
               <span className="w-2 h-2 rounded-full bg-gray-300"></span>
             </div>
-            <Button variant="ghost" size="small" className="text-xl sm:text-2xl">
+            <Button
+              variant="ghost"
+              size="small"
+              className="text-xl sm:text-2xl"
+            >
               →
             </Button>
           </div>
@@ -54,4 +61,3 @@ const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
-

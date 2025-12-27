@@ -19,7 +19,7 @@ const BlogSection = () => {
 
   return (
     <section className="py-10 sm:py-12 md:py-15 px-4 sm:px-5" id="blog">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading text-center mb-8 sm:mb-12">
           Latest news & article directly from our blog
         </h2>
@@ -54,7 +54,11 @@ const BlogSection = () => {
                     SustainableLifestyle
                   </span>
                 </div>
-                <Button variant={blog.variant} size="small" className="text-xs sm:text-sm">
+                <Button
+                  variant={blog.variant}
+                  size="small"
+                  className="text-xs sm:text-sm"
+                >
                   Read more
                 </Button>
               </div>
@@ -67,4 +71,3 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
-

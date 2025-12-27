@@ -10,9 +10,8 @@ const HeroSection = () => {
         alt="Hero"
         className="w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-linear-to-br from-accent/20 to-accent/5"></div>
       <div className="absolute z-10 text-center px-4 sm:px-5 max-w-4xl mx-auto text-white">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-heading mb-6 sm:mb-8 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-heading mb-6 sm:mb-8 leading-tight">
           Fulfilled Souls. <br /> Happiness Delivered.
         </h1>
         <Link to="/book-donation">

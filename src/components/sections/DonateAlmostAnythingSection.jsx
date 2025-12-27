@@ -38,14 +38,14 @@ const DonateAlmostAnythingSection = () => {
 
   return (
     <section className="py-10 sm:py-12 md:py-15 px-4 sm:px-5 bg-gray-50">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading mb-3 sm:mb-4">
             Donate Almost Anything
           </h2>
           <p className="text-sm sm:text-base text-body max-w-2xl mx-auto px-4">
-            Select approx. quantity of the goods you are donating from below.
-            It helps us in measuring the overall impact we create.
+            Select approx. quantity of the goods you are donating from below. It
+            helps us in measuring the overall impact we create.
           </p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
@@ -78,4 +78,3 @@ const DonateAlmostAnythingSection = () => {
 };
 
 export default DonateAlmostAnythingSection;
-

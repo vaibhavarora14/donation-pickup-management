@@ -5,7 +5,7 @@ const BrandCollaborationsSection = () => {
 
   return (
     <section className="py-10 sm:py-12 md:py-15 px-4 sm:px-5 bg-gray-50">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading text-center mb-3 sm:mb-4">
           OUR BRAND COLLABORATIONS
         </h2>
@@ -34,4 +34,3 @@ const BrandCollaborationsSection = () => {
 };
 
 export default BrandCollaborationsSection;
-

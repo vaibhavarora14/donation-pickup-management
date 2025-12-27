@@ -18,14 +18,20 @@ const ContactFormSection = () => {
   };
 
   return (
-    <section className="py-10 sm:py-12 md:py-15 px-4 sm:px-5 bg-gray-50" id="contact">
-      <div className="max-w-[1200px] mx-auto">
+    <section
+      className="py-10 sm:py-12 md:py-15 px-4 sm:px-5 bg-gray-50"
+      id="contact"
+    >
+      <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           <div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading mb-6 sm:mb-8">
               Be a part of our story
             </h2>
-            <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit(onSubmit)}>
+            <form
+              className="space-y-4 sm:space-y-5"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <Input
                 type="text"
                 placeholder="Name"
@@ -118,4 +124,3 @@ const ContactFormSection = () => {
 };
 
 export default ContactFormSection;
-

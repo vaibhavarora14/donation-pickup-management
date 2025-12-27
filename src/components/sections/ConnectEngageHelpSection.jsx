@@ -10,8 +10,7 @@ const ConnectEngageHelpSection = () => {
     {
       emoji: "🤝",
       title: "Engage",
-      description:
-        "Checkout the NGO's success stories, campaigns and more",
+      description: "Checkout the NGO's success stories, campaigns and more",
     },
     {
       emoji: "❤️",
@@ -22,7 +21,7 @@ const ConnectEngageHelpSection = () => {
 
   return (
     <section className="py-10 sm:py-12 md:py-15 px-4 sm:px-5 bg-gray-50">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {cards.map((card, index) => (
             <div
@@ -33,7 +32,9 @@ const ConnectEngageHelpSection = () => {
               <h3 className="text-lg sm:text-xl font-semibold text-heading mb-3">
                 {card.title}
               </h3>
-              <p className="text-sm sm:text-base text-body">{card.description}</p>
+              <p className="text-sm sm:text-base text-body">
+                {card.description}
+              </p>
             </div>
           ))}
         </div>
@@ -43,4 +44,3 @@ const ConnectEngageHelpSection = () => {
 };
 
 export default ConnectEngageHelpSection;
-

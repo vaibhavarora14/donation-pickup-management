@@ -83,7 +83,7 @@ const PickupModeSelection = () => {
       <Header />
 
       {/* Main Content */}
-      <main className="max-w-[1200px] mx-auto px-5 py-10 pb-25">
+      <main className="max-w-[1440px] mx-auto px-5 py-10 pb-25">
         {/* Page Title and Location */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
           <h1 className="text-3xl md:text-4xl font-medium text-black m-0">
@@ -92,7 +92,9 @@ const PickupModeSelection = () => {
           <div className="flex justify-end">
             <div className="inline-flex items-center gap-2.5 bg-accent/10 border border-accent/10 rounded-full px-5 py-2 cursor-pointer transition-all hover:bg-accent/15 text-accent">
               <MapPin size={20} />
-              <span className="text-base font-medium tracking-[0.8px]">Mohali</span>
+              <span className="text-base font-medium tracking-[0.8px]">
+                Mohali
+              </span>
               <ChevronDown size={16} />
             </div>
           </div>
@@ -129,10 +131,18 @@ const PickupModeSelection = () => {
               onClick={() => setSelectedMode(mode.id)}
             >
               {mode.image && (
-                <img src={mode.image} alt={mode.name} className="w-full h-32 object-contain mb-4" />
+                <img
+                  src={mode.image}
+                  alt={mode.name}
+                  className="w-full h-32 object-contain mb-4"
+                />
               )}
-              <div className="text-xl font-semibold text-heading mb-2">{mode.name}</div>
-              <div className="text-2xl font-bold text-accent mb-2">{mode.price}</div>
+              <div className="text-xl font-semibold text-heading mb-2">
+                {mode.name}
+              </div>
+              <div className="text-2xl font-bold text-accent mb-2">
+                {mode.price}
+              </div>
               <div className="text-sm text-body mb-1">{mode.capacity}</div>
               <div className="text-sm text-body">{mode.weight}</div>
             </Card>
@@ -144,7 +154,9 @@ const PickupModeSelection = () => {
           <div className="lg:col-span-2 space-y-6">
             {/* Need Helper Card */}
             <Card variant="default" padding="medium">
-              <h3 className="text-xl font-semibold text-heading mb-6">Need Helper ?</h3>
+              <h3 className="text-xl font-semibold text-heading mb-6">
+                Need Helper ?
+              </h3>
               <div className="flex gap-6 mb-6">
                 <Radio
                   name="helper"
@@ -163,7 +175,9 @@ const PickupModeSelection = () => {
               </div>
 
               <div className="mb-6">
-                <label className="block text-sm font-medium text-heading mb-2">Which Floor ?</label>
+                <label className="block text-sm font-medium text-heading mb-2">
+                  Which Floor ?
+                </label>
                 <Select
                   value={floor}
                   onChange={(e) => setFloor(e.target.value)}
@@ -182,7 +196,9 @@ const PickupModeSelection = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-heading mb-2">Lift Available ?</label>
+                <label className="block text-sm font-medium text-heading mb-2">
+                  Lift Available ?
+                </label>
                 <div className="flex gap-6">
                   <Radio
                     name="lift"
@@ -204,7 +220,9 @@ const PickupModeSelection = () => {
 
             {/* Terms Card */}
             <Card variant="default" padding="medium">
-              <h3 className="text-xl font-semibold text-heading mb-4">Terms and conditions*</h3>
+              <h3 className="text-xl font-semibold text-heading mb-4">
+                Terms and conditions*
+              </h3>
               <p className="text-sm text-body mb-4 leading-relaxed">
                 <strong>Lorem ipsum dolor sit amet</strong>, consectetur
                 adipiscing elit. Duis lacinia urna sit amet sapien suscipit, in
@@ -230,25 +248,37 @@ const PickupModeSelection = () => {
                 Show more
                 <ChevronDown
                   size={12}
-                  className={cn("transition-transform", showMoreTerms && "rotate-180")}
+                  className={cn(
+                    "transition-transform",
+                    showMoreTerms && "rotate-180"
+                  )}
                 />
               </Button>
             </Card>
           </div>
 
           {/* Price Detail Card */}
-          <Card variant="default" padding="medium" className="lg:sticky lg:top-24 h-fit">
-            <h3 className="text-xl font-semibold text-heading mb-6">Price Detail</h3>
+          <Card
+            variant="default"
+            padding="medium"
+            className="lg:sticky lg:top-24 h-fit"
+          >
+            <h3 className="text-xl font-semibold text-heading mb-6">
+              Price Detail
+            </h3>
             <div className="mb-6">
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Total Price</span>
                 <span className="text-heading font-medium">
-                  {pickupModes.find((m) => m.id === selectedMode)?.price || "₹200"}
+                  {pickupModes.find((m) => m.id === selectedMode)?.price ||
+                    "₹200"}
                 </span>
               </div>
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Helper Charges</span>
-                <span className="text-heading font-medium">₹{needHelper === "yes" ? "10.00" : "0.00"}</span>
+                <span className="text-heading font-medium">
+                  ₹{needHelper === "yes" ? "10.00" : "0.00"}
+                </span>
               </div>
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Total GST</span>
@@ -257,7 +287,8 @@ const PickupModeSelection = () => {
                   {Math.round(
                     (parseInt(
                       (
-                        pickupModes.find((m) => m.id === selectedMode)?.price || "₹200"
+                        pickupModes.find((m) => m.id === selectedMode)?.price ||
+                        "₹200"
                       )
                         .replace(/[₹,\s-]/g, "")
                         .split(" ")[0] || "200"

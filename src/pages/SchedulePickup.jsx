@@ -164,13 +164,19 @@ const SchedulePickup = () => {
         </h1>
 
         {/* Note Section */}
-        <Card variant="default" padding="medium" className="bg-[#f0ecd6] border border-[#e4e7eb] mb-10 max-w-[1000px] mx-auto">
+        <Card
+          variant="default"
+          padding="medium"
+          className="bg-[#f0ecd6] border border-[#e4e7eb] mb-10 max-w-[1000px] mx-auto"
+        >
           <div className="flex gap-4 items-start">
             <div className="flex-shrink-0 w-[29px] h-[29px] bg-accent rounded-full flex items-center justify-center text-white">
               <AlertCircle size={18} />
             </div>
             <div className="flex-1">
-              <strong className="text-accent text-lg font-semibold mr-1">Note:</strong>
+              <strong className="text-accent text-lg font-semibold mr-1">
+                Note:
+              </strong>
               <p className="text-[#334147] text-sm leading-[18px] tracking-[0.7px] mt-1">
                 We, at Happieesouls, support small grassroots NGOs with your
                 donations. Our third party logistics partners do not carry any
@@ -182,13 +188,19 @@ const SchedulePickup = () => {
           </div>
         </Card>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_413px] gap-8 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_413px] gap-8 max-w-[1440px] mx-auto">
           {/* Left Column - Donor Details */}
           <div className="flex flex-col gap-5">
             {/* Donor Location */}
-            <Card variant="default" padding="medium" className="bg-white rounded-[14px]">
+            <Card
+              variant="default"
+              padding="medium"
+              className="bg-white rounded-[14px]"
+            >
               <div className="flex justify-between items-center mb-4">
-                <h3 className="text-sm font-medium text-heading m-0">Donor Location:</h3>
+                <h3 className="text-sm font-medium text-heading m-0">
+                  Donor Location:
+                </h3>
                 <Button
                   variant="outline"
                   size="small"
@@ -201,12 +213,20 @@ const SchedulePickup = () => {
                   Change location
                 </Button>
               </div>
-              <p className="text-xs text-[#535456] leading-5 m-0">{donorLocation.address}</p>
+              <p className="text-xs text-[#535456] leading-5 m-0">
+                {donorLocation.address}
+              </p>
             </Card>
 
             {/* Donor Details Form */}
-            <Card variant="default" padding="large" className="bg-white rounded-[15px]">
-              <h2 className="text-xl font-semibold text-[#272727] mb-4 m-0">Donor Detail</h2>
+            <Card
+              variant="default"
+              padding="large"
+              className="bg-white rounded-[15px]"
+            >
+              <h2 className="text-xl font-semibold text-[#272727] mb-4 m-0">
+                Donor Detail
+              </h2>
               <div className="h-px bg-[#e4e7eb] mb-6"></div>
 
               <form
@@ -357,9 +377,15 @@ const SchedulePickup = () => {
             </Card>
 
             {/* Pickup Date Selection */}
-            <Card variant="default" padding="large" className="bg-white rounded-[15px]">
+            <Card
+              variant="default"
+              padding="large"
+              className="bg-white rounded-[15px]"
+            >
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-semibold text-[#272727] m-0">Choose a pickup date</h2>
+                <h2 className="text-xl font-semibold text-[#272727] m-0">
+                  Choose a pickup date
+                </h2>
                 <Button
                   variant="outline"
                   size="small"
@@ -415,7 +441,10 @@ const SchedulePickup = () => {
                     <div className="grid grid-cols-7 gap-1.5 mb-2.5">
                       {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map(
                         (day) => (
-                          <div key={day} className="text-center text-xs text-[rgba(60,60,67,0.6)] font-normal">
+                          <div
+                            key={day}
+                            className="text-center text-xs text-[rgba(60,60,67,0.6)] font-normal"
+                          >
                             {day}
                           </div>
                         )
@@ -429,7 +458,8 @@ const SchedulePickup = () => {
                           className={cn(
                             "w-[51px] h-[42px] border-none bg-none text-base text-black cursor-pointer rounded transition-all",
                             !date && "cursor-default",
-                            date && isSameDay(date, selectedDate) &&
+                            date &&
+                              isSameDay(date, selectedDate) &&
                               "bg-accent text-white font-medium"
                           )}
                           onClick={() => handleDateClick(date)}
@@ -447,27 +477,52 @@ const SchedulePickup = () => {
 
           {/* Right Column - Donation Items & Order */}
           <div className="flex flex-col">
-            <Card variant="default" padding="large" className="bg-white rounded-[15px] lg:sticky lg:top-24 h-fit">
-              <h2 className="text-xl font-semibold text-[#272727] mb-4 m-0">Donation item</h2>
+            <Card
+              variant="default"
+              padding="large"
+              className="bg-white rounded-[15px] lg:sticky lg:top-24 h-fit"
+            >
+              <h2 className="text-xl font-semibold text-[#272727] mb-4 m-0">
+                Donation item
+              </h2>
               <div className="h-px bg-[#e4e7eb] mb-5"></div>
 
               <div className="flex flex-col gap-2.5 mb-5">
                 {selectedItems.length > 0 ? (
                   selectedItems.map((item, index) => (
-                    <p key={index} className="text-base text-[#353945] m-0 leading-10">
+                    <p
+                      key={index}
+                      className="text-base text-[#353945] m-0 leading-10"
+                    >
                       {item}
                     </p>
                   ))
                 ) : (
                   <>
-                    <p className="text-base text-[#353945] m-0 leading-10">Gas Stove</p>
-                    <p className="text-base text-[#353945] m-0 leading-10">Washing Machine</p>
-                    <p className="text-base text-[#353945] m-0 leading-10">Water Purifier</p>
-                    <p className="text-base text-[#353945] m-0 leading-10">Table Fan</p>
-                    <p className="text-base text-[#353945] m-0 leading-10">Almirah</p>
-                    <p className="text-base text-[#353945] m-0 leading-10">Center Table</p>
-                    <p className="text-base text-[#353945] m-0 leading-10">Single Or Double Cot</p>
-                    <p className="text-base text-[#353945] m-0 leading-10">Basketball/Football/ Bat</p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Gas Stove
+                    </p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Washing Machine
+                    </p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Water Purifier
+                    </p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Table Fan
+                    </p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Almirah
+                    </p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Center Table
+                    </p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Single Or Double Cot
+                    </p>
+                    <p className="text-base text-[#353945] m-0 leading-10">
+                      Basketball/Football/ Bat
+                    </p>
                   </>
                 )}
               </div>
@@ -476,8 +531,12 @@ const SchedulePickup = () => {
 
               <div className="mb-5">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-base font-semibold text-[#3c3d47]">Helper Chargers</span>
-                  <span className="text-base font-bold text-[#3c3d47]">₹150</span>
+                  <span className="text-base font-semibold text-[#3c3d47]">
+                    Helper Chargers
+                  </span>
+                  <span className="text-base font-bold text-[#3c3d47]">
+                    ₹150
+                  </span>
                 </div>
                 <Checkbox
                   checked={helperCharges}
@@ -489,12 +548,7 @@ const SchedulePickup = () => {
               <div className="h-px bg-[#e4e7eb] mb-5"></div>
 
               <form onSubmit={handleSubmit(onSubmit)}>
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="large"
-                  fullWidth
-                >
+                <Button type="submit" variant="primary" size="large" fullWidth>
                   Place Order
                 </Button>
               </form>

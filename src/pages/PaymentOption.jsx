@@ -30,8 +30,10 @@ const PaymentOption = () => {
       <Header />
 
       {/* Main Content */}
-      <main className="max-w-[1200px] mx-auto px-5 py-15 pb-25 text-center">
-        <h1 className="text-[32px] font-medium text-black mb-5">Select Payment Option</h1>
+      <main className="max-w-[1440px] mx-auto px-5 py-15 pb-25 text-center">
+        <h1 className="text-[32px] font-medium text-black mb-5">
+          Select Payment Option
+        </h1>
         <p className="text-base text-body opacity-70 mb-15">
           All transactions are secure and encrypted
         </p>
@@ -39,7 +41,9 @@ const PaymentOption = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1000px] mx-auto">
           {/* Payment Methods Card */}
           <Card variant="default" padding="large">
-            <h3 className="text-xl font-semibold text-heading mb-8 text-left">Payment Methods</h3>
+            <h3 className="text-xl font-semibold text-heading mb-8 text-left">
+              Payment Methods
+            </h3>
             <div className="flex flex-col gap-4">
               {paymentMethods.map((method) => (
                 <div
@@ -53,7 +57,9 @@ const PaymentOption = () => {
                   onClick={() => setSelectedPayment(method.id)}
                 >
                   <span className="text-2xl">{method.icon}</span>
-                  <span className="text-base font-medium text-heading">{method.name}</span>
+                  <span className="text-base font-medium text-heading">
+                    {method.name}
+                  </span>
                 </div>
               ))}
             </div>
@@ -61,19 +67,27 @@ const PaymentOption = () => {
 
           {/* Price Detail Card */}
           <Card variant="default" padding="large">
-            <h3 className="text-xl font-semibold text-heading mb-8 text-left">Price Detail</h3>
+            <h3 className="text-xl font-semibold text-heading mb-8 text-left">
+              Price Detail
+            </h3>
             <div className="mb-5">
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Total Price</span>
-                <span className="text-heading font-medium text-right">₹200</span>
+                <span className="text-heading font-medium text-right">
+                  ₹200
+                </span>
               </div>
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Helper Charges</span>
-                <span className="text-heading font-medium text-right">₹10.00</span>
+                <span className="text-heading font-medium text-right">
+                  ₹10.00
+                </span>
               </div>
               <div className="flex justify-between py-5 text-base border-b border-gray-300">
                 <span className="text-black opacity-60">Total GST</span>
-                <span className="text-heading font-medium text-right">₹5.00</span>
+                <span className="text-heading font-medium text-right">
+                  ₹5.00
+                </span>
               </div>
             </div>
             <div className="flex justify-between py-5 text-base font-semibold text-heading border-t-2 border-gray-300 mb-8">
@@ -99,4 +113,3 @@ const PaymentOption = () => {
 };
 
 export default PaymentOption;
-

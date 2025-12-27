@@ -21,7 +21,7 @@ const SupportCauseSection = () => {
 
   return (
     <section className="py-10 sm:py-12 md:py-15 px-4 sm:px-5">
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1440px] mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-heading text-center mb-3 sm:mb-4">
           Support a cause close to your heart
         </h2>
@@ -51,4 +51,3 @@ const SupportCauseSection = () => {
 };
 
 export default SupportCauseSection;
-
