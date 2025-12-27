@@ -27,8 +27,8 @@ const LandingPage = () => {
       <StatsSection />
       <WelcomeSection />
       <WhatWeDoSection />
-      <HowWeWorkSection />
       <ConnectEngageHelpSection />
+      <HowWeWorkSection />
       <DonateAlmostAnythingSection />
       <SupportCauseSection />
       <BrandCollaborationsSection />

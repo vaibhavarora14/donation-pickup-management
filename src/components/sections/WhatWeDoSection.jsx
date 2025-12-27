@@ -26,7 +26,7 @@ const WhatWeDoSection = () => {
                 className="text-base sm:text-lg text-body flex items-center gap-2"
               >
                 <span className="text-primary bg-primary/10 rounded-full w-5 h-5 flex items-center justify-center">
-                  <Check className="w-3 h-3 " />
+                  <Check className="w-2 h-2 " />
                 </span>
                 {feature}
               </li>
